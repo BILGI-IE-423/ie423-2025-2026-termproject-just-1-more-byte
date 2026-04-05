@@ -1,0 +1,13 @@
+column,missing_count,missing_pct
+type,0,0.0
+posts,0,0.0
+post_list,0,0.0
+post_count,0,0.0
+clean_posts,0,0.0
+dim_IE,0,0.0
+dim_NS,0,0.0
+dim_TF,0,0.0
+dim_JP,0,0.0
+word_count,0,0.0
+char_count,0,0.0
+avg_word_len,0,0.0
