@@ -2,7 +2,7 @@
 
 ## Team Members
 - Feyza Bektaş
-- Jumana Asim Bakri Osman Jumana Asim Bakri Osman
+- Jumana Asim Bakri Osman
 - Efe Odabaşı
 - Ali Fırat Dolu
 
