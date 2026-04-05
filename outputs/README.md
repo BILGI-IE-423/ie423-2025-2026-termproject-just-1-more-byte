@@ -1,10 +1,8 @@
 # IE 423 Term Project Proposal — Personality in Words: Mining Linguistic Fingerprints of MBTI Types
 
 ## Team Members
-- Feyza Bektaş
-- Jumana Asim Bakri Osman
-- Efe Odabaşı
-- Ali Fırat Dolu
+- [Name Surname]
+- [Name Surname]
 
 ---
 
