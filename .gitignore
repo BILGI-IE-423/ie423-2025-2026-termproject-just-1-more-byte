@@ -1,0 +1,17 @@
+# Large data files
+data/raw/
+data/processed/
+
+# Docs content (folder tracked via .gitkeep)
+docs/*.md
+docs/*.pdf
+docs/*.docx
+
+# Output figures and tables
+outputs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
