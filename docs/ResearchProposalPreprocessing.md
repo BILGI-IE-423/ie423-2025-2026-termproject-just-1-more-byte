@@ -5,7 +5,7 @@
 ## Team Information
 
 - Feyza Bektaş - 121203057
-- Jumana Asim Bakri Osman - 12203002
+- Jumana Asim Bakri Osman - 122203002
 - Ali Fırat Dolu - 123203012
 - Efe Odabaşı - 121203041
 
