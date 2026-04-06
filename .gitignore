@@ -1,6 +1,6 @@
 # Large data files
 data/raw/
-data/processed/
+# data/processed/ is tracked (mbti_cleaned.csv)
 
 # Docs content (folder tracked via .gitkeep)
 docs/*.md
