@@ -3,15 +3,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personality in Words — IE423 MBTI NLP Project</title>
+  <meta name="description" content="An NLP and machine learning exploration of MBTI personality through written language.">
+  <title>Personality in Words — IE423</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-theme="introvert">
+
+  <!-- Ambient background layers -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__gradient"></div>
+    <div class="ambient__haze"></div>
+    <div class="ambient_glow ambient_glow--a"></div>
+    <div class="ambient_glow ambient_glow--b"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Primary">
+    <span class="nav__brand">Personality in Words</span>
+    <ul class="nav__links">
+      <li><a href="#question">Question</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#pipeline">Method</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#interpretability">Language</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <h1>Personality in Words</h1>
-    <p>IE423 — Mining Linguistic Fingerprints of MBTI Types</p>
+
+    <!-- SECTION 1 — HERO -->
+    <section id="hero" class="section section--hero" data-theme="introvert">
+      <div class="lang-atmosphere lang-atmosphere--hero" data-lang-set="hero" data-lang-intensity="medium" aria-hidden="true"></div>
+      <div class="section__inner hero">
+        <p class="eyebrow reveal">IE423 · NLP &amp; Machine Learning</p>
+        <h1 class="hero__title reactive-headline reveal reveal--delay-1">
+          Can language reveal<br>who we are?
+        </h1>
+        <p class="hero__sub reveal reveal--delay-2">
+          An NLP and machine learning exploration of personality through words.
+        </p>
+        <a href="#question" class="cta reveal reveal--delay-3">Explore the Project ↓</a>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — THE QUESTION -->
+    <section id="question" class="section section--question" data-theme="intuition" data-analysis-zone>
+      <div class="lang-atmosphere lang-atmosphere--question" data-lang-set="question" data-lang-intensity="medium" aria-hidden="true"></div>
+      <div class="section__inner question">
+        <div class="question__mark reveal" aria-hidden="true">
+          <span>?</span>
+        </div>
+        <div class="question__text reveal reveal--delay-1">
+          <p class="lead">Every sentence leaves a trace.</p>
+          <p class="body-lg">Can machine learning detect personality through language alone?</p>
+          <p class="body-sm muted">
+            We treat MBTI not as sixteen fixed types, but as four binary dimensions —
+            Introversion/Extraversion, Intuition/Sensing, Thinking/Feeling, and Judging/Perceiving —
+            each predicted independently from text.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — THE DATA -->
+    <section id="data" class="section section--data" data-theme="sensing" data-analysis-zone>
+      <div class="lang-atmosphere" data-lang-set="data" data-lang-intensity="light" aria-hidden="true"></div>
+      <div class="section__inner">
+        <header class="section__header reveal">
+          <span class="eyebrow">The Dataset</span>
+          <h2 class="reactive-headline">Scale &amp; context</h2>
+        </header>
+
+        <div class="stats reveal reveal--delay-1">
+          <div class="stat">
+            <span class="stat__number" data-count="8675">0</span>
+            <span class="stat__label">personalities analyzed</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">4</span>
+            <span class="stat__label">dimensions explored</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number">3</span>
+            <span class="stat__label">interpretable models</span>
+          </div>
+        </div>
+
+        <p class="body-lg centered reveal reveal--delay-2">
+          Millions of words processed. Sixteen personality types. One question —
+          which linguistic signals persist?
+        </p>
+
+        <div class="chart-grid chart-grid--duo reveal reveal--delay-3">
+          <figure class="chart-card chart-reveal">
+            <figcaption>Type distribution across the corpus</figcaption>
+            <div class="chart-card__stage" data-reveal="rise">
+              <img src="visuals/figures/fig1_type_distribution.png" alt="Bar chart showing MBTI type distribution in the dataset" loading="lazy">
+            </div>
+          </figure>
+          <figure class="chart-card chart-reveal">
+            <figcaption>Class imbalance across dimensions</figcaption>
+            <div class="chart-card__stage" data-reveal="rise">
+              <img src="visuals/figures/class_imbalance_overview.png" alt="Grouped bar chart showing class imbalance for each MBTI dimension" loading="lazy">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — THE PIPELINE -->
+    <section id="pipeline" class="section section--pipeline" data-theme="thinking" data-analysis-zone>
+      <div class="lang-atmosphere" data-lang-set="pipeline" data-lang-intensity="medium" aria-hidden="true"></div>
+      <div class="section__inner">
+        <header class="section__header reveal">
+          <span class="eyebrow">Methodology</span>
+          <h2 class="reactive-headline">From words to insight</h2>
+        </header>
+
+        <div class="pipeline reveal reveal--delay-1">
+          <div class="pipeline__step"><span>Words</span></div>
+          <div class="pipeline__arrow">↓</div>
+          <div class="pipeline__step"><span>Patterns</span></div>
+          <div class="pipeline__arrow">↓</div>
+          <div class="pipeline__step"><span>Features</span></div>
+          <div class="pipeline__arrow">↓</div>
+          <div class="pipeline__step"><span>Predictions</span></div>
+          <div class="pipeline__arrow">↓</div>
+          <div class="pipeline__step"><span>Insights</span></div>
+        </div>
+
+        <div class="method-cards reveal reveal--delay-2">
+          <article class="method-card">
+            <h3>Feature Engineering</h3>
+            <p>TF-IDF vectorization with 5,000 features, English stopword removal, stratified train/test split on MBTI type.</p>
+          </article>
+          <article class="method-card">
+            <h3>Models</h3>
+            <p>Logistic Regression, Linear SVM, and Random Forest — each with balanced class weights for fair evaluation.</p>
+          </article>
+          <article class="method-card">
+            <h3>Evaluation</h3>
+            <p>Macro F1 as primary metric, supplemented by accuracy, precision, recall, ROC-AUC, and confusion matrices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — RESULTS -->
+    <section id="results" class="section section--results" data-theme="feeling">
+      <div class="lang-atmosphere" data-lang-set="results" data-lang-intensity="minimal" aria-hidden="true"></div>
+      <div class="section__inner">
+        <header class="section__header reveal">
+          <span class="eyebrow">Findings</span>
+          <h2 class="reactive-headline">What language predicted</h2>
+          <p class="body-sm muted">
+            Logistic Regression performed best across all four dimensions.
+            The Thinking/Feeling axis was the most predictable from text.
+          </p>
+        </header>
+
+        <div class="finding reveal">
+          <div class="finding__metric">
+            <span class="finding__value">0.809</span>
+            <span class="finding__dim">T/F · Macro F1</span>
+          </div>
+          <p class="body-lg">Personality dimensions are not equally visible in language. Some leave clearer traces than others.</p>
+        </div>
+
+        <figure class="chart-card chart-card--wide chart-reveal" data-chart="1">
+          <figcaption>Dimensions ranked by predictability</figcaption>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/dimension_predictability_ranking.png" alt="Horizontal bar chart ranking MBTI dimensions by macro F1 score" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="chart-card chart-card--wide chart-reveal" data-chart="2">
+          <figcaption>Best model per dimension</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/best_model_overview.png" alt="Summary table and performance chart of best models per MBTI dimension" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="chart-card chart-card--wide chart-reveal" data-chart="3">
+          <figcaption>ROC curves — best model per dimension</figcaption>
+          <div class="chart-card__stage" data-reveal="draw">
+            <img src="visuals/figures/roc_summary_grid.png" alt="2x2 grid of ROC curves for the best model on each MBTI dimension" loading="lazy">
+            <div class="chart-card__scan" aria-hidden="true"></div>
+          </div>
+        </figure>
+
+        <figure class="chart-card chart-card--wide chart-reveal" data-chart="4">
+          <figcaption>Confusion matrix — Thinking vs Feeling</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="Confusion matrix for T/F dimension using logistic regression" loading="lazy">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — INTERPRETABILITY -->
+    <section id="interpretability" class="section section--interpret" data-theme="intuition">
+      <div class="lang-atmosphere lang-atmosphere--interpret" data-lang-set="interpret" data-lang-intensity="strong" aria-hidden="true"></div>
+      <div class="section__inner">
+        <header class="section__header reveal">
+          <span class="eyebrow">Interpretability</span>
+          <h2 class="reactive-headline">Why language matters</h2>
+        </header>
+
+        <div class="insight-blocks reveal reveal--delay-1">
+          <blockquote class="insight">
+            <p>Thinking-oriented language leaned toward logic, systems, and analytical framing.</p>
+          </blockquote>
+          <blockquote class="insight">
+            <p>Feeling-oriented language emphasized emotional expression, relationships, and personal values.</p>
+          </blockquote>
+        </div>
+
+        <figure class="chart-card chart-card--wide chart-reveal">
+          <figcaption>Most predictive terms — Thinking vs Feeling</figcaption>
+          <div class="feature-emergence" aria-hidden="true">
+            <span class="feature-word">logic</span>
+            <span class="feature-word">feel</span>
+            <span class="feature-word">think</span>
+            <span class="feature-word">people</span>
+            <span class="feature-word">systems</span>
+            <span class="feature-word">care</span>
+          </div>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/top_features_dim_TF.png" alt="Diverging bar chart of top logistic regression coefficients for T/F dimension" loading="lazy">
+          </div>
+        </figure>
+
+        <figure class="chart-card chart-card--wide chart-reveal">
+          <figcaption>Cross-dimension feature importance</figcaption>
+          <div class="chart-card__stage" data-reveal="draw">
+            <img src="visuals/figures/feature_heatmap.png" alt="Heatmap showing normalized coefficient strength of important terms across MBTI dimensions" loading="lazy">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — REFLECTION -->
+    <section id="reflection" class="section section--reflection" data-theme="perceiving">
+      <div class="lang-atmosphere" data-lang-set="reflection" data-lang-intensity="light" aria-hidden="true"></div>
+      <div class="section__inner reflection reveal">
+        <span class="eyebrow">Reflection</span>
+        <h2 class="reactive-headline">Patterns, not identities</h2>
+        <p class="reflection__text">
+          Personality is more than text.<br>
+          Language reveals patterns — not complete identities.
+        </p>
+        <p class="body-sm muted">
+          Our models capture statistical tendencies in written expression.
+          They do not define who someone is — only what their words sometimes suggest.
+        </p>
+      </div>
+    </section>
+
   </main>
 
+  <!-- SECTION 8 — FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__col">
+        <span class="footer__brand">Personality in Words</span>
+        <p class="body-sm muted">IE423 Term Project · Istanbul Bilgi University</p>
+      </div>
+      <div class="footer__col">
+        <span class="footer__label">Team</span>
+        <ul class="footer__list">
+          <li>Feyza Bektaş</li>
+          <li>Jumana Asim Bakri Osman</li>
+          <li>Efe Odabaşı</li>
+          <li>Ali Fırat Dolu</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <span class="footer__label">Repository</span>
+        <a href="https://github.com/BILGI-IE-423/ie423-2025-2026-termproject-just-1-more-byte" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+      </div>
+    </div>
+    <p class="footer__copy">© 2025–2026 · Classical NLP &amp; ML Research Project</p>
+  </footer>
+
+  <script src="assets/js/language-atmosphere.js"></script>
+  <script src="assets/js/reactive-experience.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
