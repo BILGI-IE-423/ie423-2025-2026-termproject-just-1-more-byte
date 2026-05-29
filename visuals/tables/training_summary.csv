@@ -1,0 +1,13 @@
+dimension,dim_label,model,train_size,test_size,class_0_count,class_1_count,fit_time_sec
+dim_IE,I/E,logistic_regression,6940,1735,5342,1598,0.14
+dim_IE,I/E,linear_svm,6940,1735,5342,1598,0.41
+dim_IE,I/E,random_forest,6940,1735,5342,1598,2.08
+dim_NS,N/S,logistic_regression,6940,1735,5983,957,0.12
+dim_NS,N/S,linear_svm,6940,1735,5983,957,0.4
+dim_NS,N/S,random_forest,6940,1735,5983,957,1.72
+dim_TF,T/F,logistic_regression,6940,1735,3185,3755,0.23
+dim_TF,T/F,linear_svm,6940,1735,3185,3755,0.41
+dim_TF,T/F,random_forest,6940,1735,3185,3755,2.12
+dim_JP,J/P,logistic_regression,6940,1735,2747,4193,0.08
+dim_JP,J/P,linear_svm,6940,1735,2747,4193,0.46
+dim_JP,J/P,random_forest,6940,1735,2747,4193,2.36

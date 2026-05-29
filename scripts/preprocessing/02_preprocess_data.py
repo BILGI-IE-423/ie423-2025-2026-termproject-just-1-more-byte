@@ -14,21 +14,27 @@ This script:
 """
 
 import os
-import re
+import sys
+
 import pandas as pd
 
-# --- File paths ---
-RAW_DATA_PATH       = os.path.join("data", "raw", "mbti_1.csv")
-PROCESSED_DATA_PATH = os.path.join("data", "processed", "mbti_cleaned.csv")
-TABLES_PATH         = os.path.join("outputs", "tables")
+# Allow imports from project root
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
-os.makedirs(os.path.dirname(PROCESSED_DATA_PATH), exist_ok=True)
-os.makedirs(TABLES_PATH, exist_ok=True)
+from src.paths import PROCESSED_DATA, RAW_DATA, TABLES_DIR, ensure_dirs
+from src.text import clean_text
+
+ensure_dirs()
+os.makedirs(os.path.dirname(PROCESSED_DATA), exist_ok=True)
 
 # --- 1. Load raw data ---
 print("Loading raw data...")
 
-df = pd.read_csv(RAW_DATA_PATH)
+if not os.path.exists(RAW_DATA):
+    print(f"\n[ERROR] Raw data file not found: {RAW_DATA}")
+    sys.exit(1)
+
+df = pd.read_csv(RAW_DATA)
 print(f"Loaded {df.shape[0]} rows, columns: {list(df.columns)}")
 
 # --- 2. Standardize column names ---
@@ -51,7 +57,7 @@ print(f"  Rows removed         : {initial_rows - final_rows}")
 
 # --- 4. Split posts ---
 
-df["post_list"]  = df["posts"].apply(lambda x: [p.strip() for p in x.split("|||") if p.strip()])
+df["post_list"] = df["posts"].apply(lambda x: [p.strip() for p in x.split("|||") if p.strip()])
 df["post_count"] = df["post_list"].apply(len)
 
 print(f"\n  Mean posts per user : {df['post_count'].mean():.1f}")
@@ -60,19 +66,6 @@ print(f"  Max posts per user  : {df['post_count'].max()}")
 
 # --- 5. Text cleaning ---
 print("\nCleaning text...")
-
-def clean_text(text):
-    """Remove URLs, MBTI type mentions, special chars, extra spaces."""
-    # Remove URLs
-    text = re.sub(r"http\S+|www\S+", "", text)
-    # Remove MBTI type mentions (to avoid label leakage)
-    mbti_pattern = r"\b(INTJ|INTP|ENTJ|ENTP|INFJ|INFP|ENFJ|ENFP|ISTJ|ISFJ|ESTJ|ESFJ|ISTP|ISFP|ESTP|ESFP)\b"
-    text = re.sub(mbti_pattern, "", text, flags=re.IGNORECASE)
-    # Remove special characters and digits
-    text = re.sub(r"[^a-zA-Z\s]", " ", text)
-    # Normalize whitespace
-    text = re.sub(r"\s+", " ", text).strip().lower()
-    return text
 
 df["clean_posts"] = df["posts"].apply(clean_text)
 print("\n[OK] Text cleaned: URLs, MBTI mentions, special chars removed.")
@@ -98,8 +91,8 @@ for col in ["dim_IE", "dim_NS", "dim_TF", "dim_JP"]:
 
 # --- 7. Linguistic features ---
 
-df["word_count"]   = df["clean_posts"].apply(lambda x: len(x.split()))
-df["char_count"]   = df["clean_posts"].apply(len)
+df["word_count"] = df["clean_posts"].apply(lambda x: len(x.split()))
+df["char_count"] = df["clean_posts"].apply(len)
 df["avg_word_len"] = df.apply(
     lambda row: row["char_count"] / row["word_count"] if row["word_count"] > 0 else 0, axis=1
 )
@@ -112,10 +105,12 @@ print(f"    avg_word_len — mean: {df['avg_word_len'].mean():.2f}")
 # --- 8. Save processed dataset ---
 print("\nSaving processed dataset...")
 
-save_cols = ["type", "dim_IE", "dim_NS", "dim_TF", "dim_JP",
-             "clean_posts", "post_count", "word_count", "char_count", "avg_word_len"]
-df[save_cols].to_csv(PROCESSED_DATA_PATH, index=False)
-print(f"\n[OK] Cleaned dataset saved to: {PROCESSED_DATA_PATH}")
+save_cols = [
+    "type", "dim_IE", "dim_NS", "dim_TF", "dim_JP",
+    "clean_posts", "post_count", "word_count", "char_count", "avg_word_len",
+]
+df[save_cols].to_csv(PROCESSED_DATA, index=False)
+print(f"\n[OK] Cleaned dataset saved to: {PROCESSED_DATA}")
 print(f"     Shape: {df[save_cols].shape[0]} rows × {len(save_cols)} columns")
 print(f"     Columns: {save_cols}")
 
@@ -123,16 +118,16 @@ print(f"     Columns: {save_cols}")
 missing_summary = pd.DataFrame({
     "column": df.columns,
     "missing_count": df.isnull().sum().values,
-    "missing_pct": (df.isnull().sum().values / len(df) * 100).round(2)
+    "missing_pct": (df.isnull().sum().values / len(df) * 100).round(2),
 })
-missing_summary.to_csv(os.path.join(TABLES_PATH, "missing_value_summary.csv"), index=False)
-print(f"\n[OK] Missing value summary saved to: outputs/tables/missing_value_summary.csv")
+missing_summary.to_csv(os.path.join(TABLES_DIR, "missing_value_summary.csv"), index=False)
+print(f"\n[OK] Missing value summary saved to: visuals/tables/missing_value_summary.csv")
 
 # --- 10. Type distribution table ---
 type_dist = df["type"].value_counts().reset_index()
 type_dist.columns = ["mbti_type", "count"]
 type_dist["percentage"] = (type_dist["count"] / type_dist["count"].sum() * 100).round(2)
-type_dist.to_csv(os.path.join(TABLES_PATH, "type_distribution.csv"), index=False)
-print(f"[OK] Type distribution table saved to: outputs/tables/type_distribution.csv")
+type_dist.to_csv(os.path.join(TABLES_DIR, "type_distribution.csv"), index=False)
+print("[OK] Type distribution table saved to: visuals/tables/type_distribution.csv")
 
 print("\nDone.")

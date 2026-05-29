@@ -1,0 +1,5 @@
+dimension,dim_label,model,macro_f1,accuracy,precision,recall,roc_auc
+dim_IE,I/E,logistic_regression,0.7233,0.7867,0.711,0.7445,0.813
+dim_JP,J/P,logistic_regression,0.7029,0.7124,0.7013,0.7058,0.7848
+dim_NS,N/S,logistic_regression,0.6878,0.8167,0.6658,0.738,0.8278
+dim_TF,T/F,logistic_regression,0.8087,0.8092,0.8085,0.8105,0.892

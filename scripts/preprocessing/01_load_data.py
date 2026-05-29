@@ -12,15 +12,24 @@ This script:
 """
 
 import os
+import sys
+
 import pandas as pd
 
-# --- File paths ---
-RAW_DATA_PATH = os.path.join("data", "raw", "mbti_1.csv")
+# Allow imports from project root
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+
+from src.paths import RAW_DATA
 
 # --- 1. Load dataset ---
 print("Loading dataset...")
 
-df = pd.read_csv(RAW_DATA_PATH)
+if not os.path.exists(RAW_DATA):
+    print(f"\n[ERROR] Raw data file not found: {RAW_DATA}")
+    print("        Download mbti_1.csv from Kaggle and place it in data/raw/.")
+    sys.exit(1)
+
+df = pd.read_csv(RAW_DATA)
 print(f"Loaded {df.shape[0]} rows, {df.shape[1]} columns")
 
 # --- 2. Basic information ---
