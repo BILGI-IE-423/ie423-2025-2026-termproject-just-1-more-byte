@@ -28,6 +28,7 @@
       <li><a href="#data">Data</a></li>
       <li><a href="#pipeline">Method</a></li>
       <li><a href="#results">Results</a></li>
+      <li><a href="#rq3">Style</a></li>
       <li><a href="#interpretability">Language</a></li>
     </ul>
   </nav>
@@ -93,7 +94,7 @@
         </div>
 
         <p class="body-lg centered reveal reveal--delay-2">
-          Millions of words processed. Sixteen personality types. The main question —
+          Millions of words processed. Sixteen personality types. One question —
           which linguistic signals persist?
         </p>
 
@@ -204,12 +205,54 @@
       </div>
     </section>
 
+    <!-- SECTION 5b — RQ3 -->
+    <section id="rq3" class="section section--rq3" data-theme="thinking">
+      <div class="lang-atmosphere" data-lang-set="pipeline" data-lang-intensity="light" aria-hidden="true"></div>
+      <div class="section__inner">
+        <header class="section__header reveal">
+          <span class="eyebrow">Revised RQ3</span>
+          <h2 class="reactive-headline">Can personality traits still be predicted when topical vocabulary is removed?</h2>
+          <p class="body-sm muted">
+            Testing whether personality lives in <em>how</em> someone writes, not just <em>what</em> they write about.
+          </p>
+        </header>
+
+        <div class="method-cards reveal reveal--delay-1">
+          <article class="method-card">
+            <h3>The Idea</h3>
+            <p>Remove topically-loaded vocabulary — nouns, proper nouns, domain-specific terms — and retain only function words, punctuation patterns, sentence length, and stylometric features. If models still predict personality, the signal is stylistic, not topical.</p>
+          </article>
+          <article class="method-card">
+            <h3>Planned Approach</h3>
+            <p>POS-tag each post with NLTK, filter out content words, then re-train the Logistic Regression pipeline on the style-only feature set and compare macro F1 directly against the full TF-IDF baseline.</p>
+          </article>
+          <article class="method-card">
+            <h3>Scope Decision</h3>
+            <p>Reliable POS-tagging on noisy forum text required tuning beyond the project window. The pipeline stub lives in <code>scripts/feature_engineering/05_build_style_features.py</code> and is the logical next step for future work.</p>
+          </article>
+        </div>
+
+        <div class="finding reveal reveal--delay-2">
+          <div class="finding__metric">
+            <span class="finding__value" style="font-size: clamp(1.5rem, 4vw, 2.5rem); opacity: 0.45;">—</span>
+            <span class="finding__dim">Style-only · Macro F1</span>
+          </div>
+          <p class="body-lg">
+            A positive result here would mean personality is encoded in writing style itself —
+            independent of topic. That would validate MBTI as a genuinely stylistic construct
+            and open the door to cross-domain personality prediction.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- SECTION 6 — INTERPRETABILITY -->
     <section id="interpretability" class="section section--interpret" data-theme="intuition">
       <div class="lang-atmosphere lang-atmosphere--interpret" data-lang-set="interpret" data-lang-intensity="strong" aria-hidden="true"></div>
       <div class="section__inner">
         <header class="section__header reveal">
-          <span class="eyebrow">Interpretability</span>
+          <span class="eyebrow">Revised RQ2: Which linguistic and stylistic features contribute most to personality prediction?</span>
           <h2 class="reactive-headline">Why language matters</h2>
         </header>
 
@@ -265,7 +308,7 @@
 
   </main>
 
-  <!-- SECTION 8 — FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__col">
