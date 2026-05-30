@@ -42,25 +42,48 @@ print(f"Loaded {df.shape[0]} rows x {df.shape[1]} columns")
 
 dim_labels = ["I/E", "N/S", "T/F", "J/P"]
 
-# --- Figure 1: MBTI Type Distribution ---
+# --- Figure 1: MBTI Type Distribution (cinematic editorial) ---
 
+from src.chart_style import (
+    CHART_BG,
+    TEXT_MUTED,
+    TEXT_PRIMARY,
+    TEXT_SECONDARY,
+    mbti_type_color,
+    setup_cinematic_style,
+    style_axes,
+)
+
+setup_cinematic_style()
 type_counts = df["type"].value_counts().sort_values(ascending=False)
+bar_colors = [mbti_type_color(t) for t in type_counts.index]
 
-fig, ax = plt.subplots(figsize=(14, 5))
-bars = ax.bar(type_counts.index, type_counts.values,
-              color=sns.color_palette("Blues_d", len(type_counts)))
+fig, ax = plt.subplots(figsize=(14, 5.5), facecolor=CHART_BG)
+bars = ax.bar(
+    type_counts.index, type_counts.values,
+    color=bar_colors, edgecolor="white", linewidth=0.8, width=0.78,
+)
 
 for bar, val in zip(bars, type_counts.values):
-    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 15,
-            str(val), ha="center", va="bottom", fontsize=8, fontweight="bold")
+    ax.text(
+        bar.get_x() + bar.get_width() / 2, bar.get_height() + 12,
+        str(val), ha="center", va="bottom", fontsize=7.5, color=TEXT_SECONDARY,
+    )
 
-ax.set_title("Distribution of MBTI Personality Types in Dataset",
-             fontsize=14, fontweight="bold", pad=15)
-ax.set_xlabel("MBTI Type", fontsize=11)
-ax.set_ylabel("Number of Users", fontsize=11)
-ax.set_ylim(0, type_counts.max() * 1.15)
+ax.set_title(
+    "Distribution of personality types in the corpus",
+    fontsize=13, fontweight="600", color=TEXT_PRIMARY, pad=16,
+)
+ax.set_xlabel("MBTI Type", fontsize=10, color=TEXT_SECONDARY)
+ax.set_ylabel("Number of users", fontsize=10, color=TEXT_SECONDARY)
+ax.set_ylim(0, type_counts.max() * 1.12)
+ax.tick_params(axis="x", labelsize=8.5, rotation=0)
+style_axes(ax)
 plt.tight_layout()
-fig.savefig(os.path.join(FIGURES_DIR, "fig1_type_distribution.png"), dpi=150, bbox_inches="tight")
+fig.savefig(
+    os.path.join(FIGURES_DIR, "fig1_type_distribution.png"),
+    dpi=160, bbox_inches="tight", facecolor=CHART_BG, edgecolor="none",
+)
 plt.close()
 print("[OK] Saved: visuals/figures/fig1_type_distribution.png")
 
