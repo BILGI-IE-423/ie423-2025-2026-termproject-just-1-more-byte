@@ -67,7 +67,7 @@
 
 /* Theme accents — subtle ambient shifts tied to mask dimensions */
 [data-theme="introvert"] { --accent-glow: rgba(45, 130, 130, 0.14); --accent: #2d7878; }
-[data-theme="neutral"] { --accent-glow: rgba(74, 85, 104, 0.10); --accent: #4a5568; }
+[data-theme="neutral"] { --accent-glow: rgba(74, 85, 104, 0.08); --accent: #5c5c66; }
 [data-theme="thinking"] { --accent-glow: rgba(140, 55, 65, 0.11); --accent: #8c3741; }
 [data-theme="feeling"] { --accent-glow: rgba(160, 72, 88, 0.10); --accent: #a04858; }
 [data-theme="intuition"] { --accent-glow: rgba(100, 80, 140, 0.12); --accent: #64508c; }
@@ -1192,18 +1192,14 @@ body.mode-intuition .question__mark {
   to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
-#results-charts .chart-reveal[data-chart="1"].is-visible { transition-delay: 0.2s; }
-#results-charts .chart-reveal[data-chart="2"].is-visible { transition-delay: 0.35s; }
-#results-charts .chart-reveal[data-chart="3"].is-visible { transition-delay: 0.5s; }
-#results-charts .chart-reveal[data-chart="4"].is-visible { transition-delay: 0.65s; }
+#rq1-viz .chart-reveal[data-chart="1"].is-visible { transition-delay: 0.2s; }
+#rq1-viz .chart-reveal[data-chart="4"].is-visible { transition-delay: 0.35s; }
 
-#results-charts .chart-reveal.is-visible .chart-card__stage img {
+#rq1-viz .chart-reveal.is-visible .chart-card__stage img {
   transition-delay: 0.35s;
 }
 
-#results-charts .chart-reveal[data-chart="2"].is-visible .chart-card__stage img { transition-delay: 0.5s; }
-#results-charts .chart-reveal[data-chart="3"].is-visible .chart-card__stage img { transition-delay: 0.65s; }
-#results-charts .chart-reveal[data-chart="4"].is-visible .chart-card__stage img { transition-delay: 0.8s; }
+#rq1-viz .chart-reveal[data-chart="4"].is-visible .chart-card__stage img { transition-delay: 0.5s; }
 
 /* --- Chart cards --- */
 .chart-grid {
@@ -1972,6 +1968,174 @@ body.mode-intuition .question__mark {
   mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 15%, transparent 85%);
 }
 
+/* --- Final act (RQ conclusions + closure) --- */
+.section--final-act {
+  padding-top: clamp(6rem, 14vh, 10rem);
+  padding-bottom: clamp(6rem, 14vh, 10rem);
+}
+
+.section--final-act + .section--final-act {
+  border-top: 1px solid rgba(26, 26, 31, 0.04);
+}
+
+.section--final-act.section--scene-loose {
+  padding-top: clamp(4rem, 10vh, 6rem);
+  padding-bottom: clamp(7rem, 16vh, 12rem);
+}
+
+.rq-conclusion {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 920px;
+  margin: var(--scene-gap-lg) auto var(--scene-gap);
+}
+
+.rq-conclusion--reflective {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 880px;
+}
+
+.rq-conclusion__item {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.rq-conclusion--confident .rq-conclusion__item {
+  border-color: color-mix(in srgb, var(--dim-tf-a) 22%, var(--border));
+}
+
+.rq-conclusion--reflective .rq-conclusion__item {
+  border-color: color-mix(in srgb, var(--dim-ns-a) 18%, var(--border));
+}
+
+.rq-conclusion__tag {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+.rq-conclusion__item p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-support);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Reproducibility --- */
+.section--repro .scene--center {
+  gap: clamp(2rem, 5vh, 3rem);
+}
+
+.repro-install {
+  width: min(100%, 480px);
+  text-align: left;
+}
+
+.repro-install__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.repro-install__code {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(26, 26, 31, 0.04);
+  overflow-x: auto;
+}
+
+.repro-install__code code {
+  font-size: var(--text-sm);
+  background: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+.repro-pipeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem 1.25rem;
+  max-width: 560px;
+  width: 100%;
+  text-align: left;
+}
+
+.repro-pipeline li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.repro-pipeline__num {
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  min-width: 1.75rem;
+}
+
+.repro-pipeline__text em {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 0.92em;
+}
+
+.repro-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.85rem;
+  font-family: var(--font-display);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  transition: border-color 0.4s var(--ease-soft), transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-soft);
+}
+
+.repro-cta:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.reflection__text--closing {
+  font-size: var(--text-display-md);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
 /* Featured charts — more breathing room */
 .chart-card--featured {
   margin-bottom: 0;
@@ -2452,6 +2616,15 @@ code {
   .compare,
   .prep-grid,
   .rq3-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rq-conclusion,
+  .rq-conclusion--reflective {
+    grid-template-columns: 1fr;
+  }
+
+  .repro-pipeline {
     grid-template-columns: 1fr;
   }
 

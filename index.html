@@ -31,11 +31,12 @@
       <li><a href="#features" data-chapter="features"><span class="chapter-nav__num">06</span> Features</a></li>
       <li><a href="#modeling" data-chapter="modeling"><span class="chapter-nav__num">07</span> Models</a></li>
       <li><a href="#evaluation" data-chapter="evaluation"><span class="chapter-nav__num">08</span> Evaluation</a></li>
-      <li><a href="#results" data-chapter="results"><span class="chapter-nav__num">09</span> Results</a></li>
-      <li><a href="#interpretability" data-chapter="interpretability"><span class="chapter-nav__num">10</span> Language</a></li>
+      <li><a href="#rq1-findings" data-chapter="rq1-findings"><span class="chapter-nav__num">09</span> RQ1</a></li>
+      <li><a href="#rq2-findings" data-chapter="rq2-findings"><span class="chapter-nav__num">10</span> RQ2</a></li>
       <li><a href="#rq3" data-chapter="rq3"><span class="chapter-nav__num">11</span> RQ3</a></li>
       <li><a href="#limitations" data-chapter="limitations"><span class="chapter-nav__num">12</span> Limits</a></li>
-      <li><a href="#conclusion" data-chapter="conclusion"><span class="chapter-nav__num">13</span> Close</a></li>
+      <li><a href="#reproducibility" data-chapter="reproducibility"><span class="chapter-nav__num">13</span> Reproduce</a></li>
+      <li><a href="#conclusion" data-chapter="conclusion"><span class="chapter-nav__num">14</span> Close</a></li>
     </ol>
   </nav>
 
@@ -45,8 +46,10 @@
       <li><a href="#research-questions">Questions</a></li>
       <li><a href="#data">Data</a></li>
       <li><a href="#modeling">Method</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#interpretability">Language</a></li>
+      <li><a href="#rq1-findings">Findings</a></li>
+      <li><a href="#rq2-findings">Language</a></li>
+      <li><a href="#rq3">RQ3</a></li>
+      <li><a href="#reproducibility">Reproduce</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
     </ul>
   </nav>
@@ -106,7 +109,7 @@
           <article class="rq-card rq-card--scene rq-card--future reveal reveal--delay-2">
             <span class="rq-card__label">RQ3 · Exploratory</span>
             <h3>Does signal survive without topical vocabulary?</h3>
-            <p class="support">When models learn topics — not personality. Chapter 11.</p>
+            <p class="support">Explored in Chapters 09–11.</p>
           </article>
         </div>
       </div>
@@ -246,13 +249,22 @@
       </div>
     </section>
 
-    <!-- RESULTS — climax -->
-    <section id="results" class="section section--scene section--scene-climax" data-theme="feeling" data-chapter="results">
+    <!-- FINAL ACT — transition -->
+    <section id="final-act" class="section section--scene section--final-act" data-theme="neutral" aria-label="Final act">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Final act</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Three questions.<br>Three conclusions.</h2>
+        <p class="support reveal reveal--delay-2">The synthesis of what language revealed — and what remains open.</p>
+      </div>
+    </section>
+
+    <!-- CHAPTER 09 · RQ1 FINDINGS -->
+    <section id="rq1-findings" class="section section--scene section--final-act section--scene-climax" data-theme="feeling" data-chapter="rq1-findings">
       <div class="lang-atmosphere" data-lang-set="results" data-lang-intensity="minimal" aria-hidden="true"></div>
       <div class="section__inner">
         <header class="scene__header scene__header--center reveal">
-          <span class="eyebrow">Chapter 09</span>
-          <h2 class="scene__title reactive-headline">What language predicted</h2>
+          <span class="eyebrow">Chapter 09 · RQ1 Findings</span>
+          <h2 class="scene__title reactive-headline">Which dimensions are most predictable from text?</h2>
         </header>
 
         <div class="metric-showcase reveal" id="metric-showcase">
@@ -262,7 +274,7 @@
             <span class="metric-showcase__value" data-metric="0.809">0.000</span>
           </div>
           <p class="metric-showcase__label">Macro F1 · Thinking vs Feeling</p>
-          <p class="metric-showcase__quote">The clearest linguistic trace.</p>
+          <p class="metric-showcase__quote">Thinking / Feeling emerged as the clearest linguistic axis.</p>
           <div class="metric-showcase__spectrum" aria-hidden="true">
             <span class="metric-showcase__pole metric-showcase__pole--t">Thinking</span>
             <span class="metric-showcase__bar"></span>
@@ -270,48 +282,51 @@
           </div>
         </div>
 
-        <p class="statement statement--center reveal">Analytical language and emotional language diverge most clearly.</p>
+        <div class="rq-conclusion rq-conclusion--confident reveal reveal--delay-1">
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">T/F leads</span>
+            <p>Emotional vocabulary and analytical tone diverge sharply in forum language.</p>
+          </article>
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">I/E · N/S · J/P</span>
+            <p>Weaker but non-random — harder to separate from topic and style noise.</p>
+          </article>
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">Why T/F?</span>
+            <p>Expressive differences · interpersonal framing · feeling vs. logic in word choice.</p>
+          </article>
+        </div>
+
+        <p class="statement statement--center reveal reveal--delay-2">RQ1 answer: personality signal exists — strongest along the thinking–feeling dimension.</p>
       </div>
     </section>
 
-    <!-- RESULTS CHARTS — spaced -->
-    <section id="results-charts" class="section section--scene section--scene-loose section--results" data-theme="feeling">
+    <!-- RQ1 — ranking visualization -->
+    <section id="rq1-viz" class="section section--scene section--scene-loose section--final-act section--results" data-theme="feeling">
       <div class="section__inner scene-spaced">
         <figure class="chart-card chart-card--featured chart-reveal reveal" data-chart="1" data-dimension="multi">
-          <figcaption>Dimension ranking</figcaption>
+          <figcaption>Dimension predictability ranking</figcaption>
           <div class="chart-card__stage" data-reveal="rise">
             <img src="visuals/figures/dimension_predictability_ranking.png" alt="Dimension ranking" loading="lazy">
           </div>
         </figure>
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-chart="2" data-dimension="multi">
-          <figcaption>Best model per dimension</figcaption>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-chart="4" data-dimension="dim_TF">
+          <figcaption>T/F confusion matrix · logistic regression</figcaption>
           <div class="chart-card__stage" data-reveal="fade">
-            <img src="visuals/figures/best_model_overview.png" alt="Best models" loading="lazy">
-          </div>
-        </figure>
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-2" data-chart="3" data-dimension="multi">
-          <figcaption>ROC curves</figcaption>
-          <div class="chart-card__stage" data-reveal="draw">
-            <img src="visuals/figures/roc_summary_grid.png" alt="ROC grid" loading="lazy">
-            <div class="chart-card__scan" aria-hidden="true"></div>
-          </div>
-        </figure>
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-3" data-chart="4" data-dimension="dim_TF">
-          <figcaption>T/F confusion matrix</figcaption>
-          <div class="chart-card__stage" data-reveal="fade">
-            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="Confusion matrix" loading="lazy">
+            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="T/F confusion matrix" loading="lazy">
           </div>
         </figure>
       </div>
     </section>
 
-    <!-- INTERPRETABILITY -->
-    <section id="interpretability" class="section section--scene section--interpret section--scene-climax" data-theme="intuition" data-chapter="interpretability">
+    <!-- CHAPTER 10 · RQ2 FINDINGS -->
+    <section id="rq2-findings" class="section section--scene section--final-act section--interpret section--scene-climax" data-theme="intuition" data-chapter="rq2-findings">
       <div class="lang-atmosphere lang-atmosphere--interpret" data-lang-set="interpret" data-lang-intensity="strong" aria-hidden="true"></div>
       <div class="section__inner">
         <header class="scene__header scene__header--center reveal">
-          <span class="eyebrow">Chapter 10</span>
-          <h2 class="scene__title reactive-headline">Traces in vocabulary</h2>
+          <span class="eyebrow">Chapter 10 · RQ2 Findings</span>
+          <h2 class="scene__title reactive-headline">Which linguistic patterns characterize each dimension?</h2>
+          <p class="statement statement--sm">Psychological traces embedded in vocabulary — not a keyword list.</p>
         </header>
 
         <div class="insight-blocks insight-blocks--spacious reveal reveal--delay-1">
@@ -323,7 +338,33 @@
           </blockquote>
         </div>
 
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-2" data-dimension="dim_TF">
+        <div class="rq-conclusion rq-conclusion--reflective reveal reveal--delay-2">
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">Analytical language</span>
+            <p>Abstract reasoning, structure, and problem-solving vocabulary.</p>
+          </article>
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">Emotional framing</span>
+            <p>Interpersonal warmth, empathy, and affective expression.</p>
+          </article>
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">Social orientation</span>
+            <p>How writers position themselves toward people and communities.</p>
+          </article>
+          <article class="rq-conclusion__item">
+            <span class="rq-conclusion__tag">Certainty vs openness</span>
+            <p>Decisive tone contrasts with exploratory, tentative phrasing.</p>
+          </article>
+        </div>
+
+        <p class="statement statement--center reveal reveal--delay-3">RQ2 answer: models surface interpretable word–dimension associations — especially along T/F.</p>
+      </div>
+    </section>
+
+    <!-- RQ2 — feature visualizations -->
+    <section id="rq2-viz" class="section section--scene section--scene-loose section--final-act" data-theme="intuition">
+      <div class="section__inner scene-spaced">
+        <figure class="chart-card chart-card--featured chart-reveal reveal" data-dimension="dim_TF">
           <figcaption>Most predictive terms — T/F</figcaption>
           <div class="feature-emergence" aria-hidden="true">
             <span class="feature-word">logic</span>
@@ -337,9 +378,8 @@
             <img src="visuals/figures/top_features_dim_TF.png" alt="Top T/F features" loading="lazy">
           </div>
         </figure>
-
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-3" data-dimension="multi">
-          <figcaption>Cross-dimension heatmap</figcaption>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-dimension="multi">
+          <figcaption>Cross-dimension feature heatmap</figcaption>
           <div class="chart-card__stage" data-reveal="draw">
             <img src="visuals/figures/feature_heatmap.png" alt="Feature heatmap" loading="lazy">
           </div>
@@ -347,18 +387,18 @@
       </div>
     </section>
 
-    <!-- RQ3 — INTRO -->
-    <section id="rq3" class="section section--scene section--rq3 section--rq3-intro" data-theme="intuition" data-chapter="rq3">
+    <!-- CHAPTER 11 · RQ3 REFLECTIONS — INTRO -->
+    <section id="rq3" class="section section--scene section--final-act section--rq3 section--rq3-intro" data-theme="intuition" data-chapter="rq3">
       <div class="lang-atmosphere lang-atmosphere--rq3" data-lang-set="rq3" data-lang-intensity="light" aria-hidden="true"></div>
       <div class="section__inner scene scene--center">
-        <span class="eyebrow reveal">Chapter 11 · RQ3</span>
-        <h2 class="scene__title scene__title--rq3 reactive-headline reveal reveal--delay-1">Are we detecting personality…<br>or the subjects people talk about?</h2>
-        <p class="statement statement--sm reveal reveal--delay-2">Topical leakage — when prediction follows hobbies, not identity.</p>
+        <span class="eyebrow reveal">Chapter 11 · RQ3 Reflections</span>
+        <h2 class="scene__title scene__title--rq3 reactive-headline reveal reveal--delay-1">Beyond topics:<br>can personality survive vocabulary removal?</h2>
+        <p class="statement statement--sm reveal reveal--delay-2">Are we detecting personality — or the subjects people talk about?</p>
       </div>
     </section>
 
     <!-- RQ3 — WHY IT MATTERS -->
-    <section id="rq3-why" class="section section--scene section--rq3" data-theme="introvert">
+    <section id="rq3-why" class="section section--scene section--final-act section--rq3" data-theme="introvert">
       <div class="section__inner scene scene--center">
         <span class="eyebrow reveal">The deeper question</span>
         <h2 class="scene__title reactive-headline reveal reveal--delay-1">Not just accuracy.<br>What is the model learning?</h2>
@@ -367,7 +407,7 @@
     </section>
 
     <!-- RQ3 — TOPICAL LEAKAGE -->
-    <section id="rq3-leakage" class="section section--scene section--rq3" data-theme="thinking">
+    <section id="rq3-leakage" class="section section--scene section--final-act section--rq3" data-theme="thinking">
       <div class="section__inner">
         <header class="scene__header scene__header--center reveal">
           <span class="eyebrow">Topical leakage</span>
@@ -401,7 +441,7 @@
     </section>
 
     <!-- RQ3 — APPROACH -->
-    <section id="rq3-approach" class="section section--scene section--rq3 section--scene-tall" data-theme="perceiving">
+    <section id="rq3-approach" class="section section--scene section--final-act section--rq3 section--scene-tall" data-theme="perceiving">
       <div class="section__inner">
         <header class="scene__header scene__header--center reveal">
           <span class="eyebrow">What we pursued</span>
@@ -430,7 +470,7 @@
     </section>
 
     <!-- RQ3 — WHY IT'S HARD -->
-    <section id="rq3-hard" class="section section--scene section--rq3" data-theme="feeling">
+    <section id="rq3-hard" class="section section--scene section--final-act section--rq3" data-theme="feeling">
       <div class="section__inner scene scene--center">
         <span class="eyebrow reveal">Why this is hard</span>
         <h2 class="scene__title reactive-headline reveal reveal--delay-1">Topic and personality<br>are entangled</h2>
@@ -443,7 +483,7 @@
     </section>
 
     <!-- RQ3 — FUTURE & CLOSING -->
-    <section id="rq3-future" class="section section--scene section--rq3 section--rq3-outro" data-theme="intuition">
+    <section id="rq3-future" class="section section--scene section--final-act section--rq3 section--rq3-outro" data-theme="intuition">
       <div class="lang-atmosphere lang-atmosphere--rq3" data-lang-set="rq3" data-lang-intensity="minimal" aria-hidden="true"></div>
       <div class="section__inner scene scene--center">
         <span class="eyebrow reveal">Future directions</span>
@@ -455,14 +495,14 @@
           <li>Multilingual personality analysis</li>
         </ul>
         <blockquote class="rq3-closing reveal reveal--delay-2">
-          <p>Maybe personality prediction is not just about <em>what</em> we say…</p>
-          <p class="rq3-closing__emphasis">but <em>how</em> we say it.</p>
+          <p>RQ3 remains open — but the question itself matters.</p>
+          <p class="rq3-closing__emphasis">Signal may live in <em>how</em> we write, not only <em>what</em> we discuss.</p>
         </blockquote>
       </div>
     </section>
 
     <!-- LIMITATIONS -->
-    <section id="limitations" class="section section--scene" data-theme="feeling" data-chapter="limitations">
+    <section id="limitations" class="section section--scene section--final-act" data-theme="feeling" data-chapter="limitations">
       <div class="section__inner">
         <header class="scene__header scene__header--center reveal">
           <span class="eyebrow">Chapter 12</span>
@@ -477,15 +517,44 @@
       </div>
     </section>
 
+    <!-- REPRODUCIBILITY -->
+    <section id="reproducibility" class="section section--scene section--final-act section--repro" data-theme="sensing" data-chapter="reproducibility">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 13</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Explore the repository</h2>
+        <p class="support reveal reveal--delay-2">Recreate the pipeline — from raw posts to interpretability figures.</p>
+
+        <div class="repro-install reveal reveal--delay-2">
+          <span class="repro-install__label">Install dependencies</span>
+          <pre class="repro-install__code"><code>pip install -r requirements.txt</code></pre>
+        </div>
+
+        <ol class="repro-pipeline reveal reveal--delay-3">
+          <li><span class="repro-pipeline__num">01</span><span class="repro-pipeline__text">Load data</span></li>
+          <li><span class="repro-pipeline__num">02</span><span class="repro-pipeline__text">Preprocess data</span></li>
+          <li><span class="repro-pipeline__num">03</span><span class="repro-pipeline__text">Exploratory analysis</span></li>
+          <li><span class="repro-pipeline__num">04</span><span class="repro-pipeline__text">TF-IDF features</span></li>
+          <li><span class="repro-pipeline__num">05</span><span class="repro-pipeline__text">Style features <em>(RQ3)</em></span></li>
+          <li><span class="repro-pipeline__num">06</span><span class="repro-pipeline__text">Train models</span></li>
+          <li><span class="repro-pipeline__num">07</span><span class="repro-pipeline__text">Evaluate models</span></li>
+          <li><span class="repro-pipeline__num">08</span><span class="repro-pipeline__text">Interpretability analysis</span></li>
+        </ol>
+
+        <p class="support support--muted reveal reveal--delay-3"><code>python scripts/run_pipeline.py</code> · run all stages</p>
+
+        <a href="https://github.com/BILGI-IE-423/ie423-2025-2026-termproject-just-1-more-byte" class="repro-cta reveal reveal--delay-3" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+      </div>
+    </section>
+
     <!-- CONCLUSION -->
-    <section id="conclusion" class="section section--reflection section--scene" data-theme="perceiving" data-chapter="conclusion">
+    <section id="conclusion" class="section section--reflection section--scene section--final-act" data-theme="perceiving" data-chapter="conclusion">
       <div class="lang-atmosphere" data-lang-set="reflection" data-lang-intensity="light" aria-hidden="true"></div>
       <div class="section__inner reflection scene scene--center reveal">
-        <span class="eyebrow">Chapter 13</span>
+        <span class="eyebrow">Chapter 14</span>
         <h2 class="scene__title reactive-headline">Patterns, not identities</h2>
-        <p class="reflection__text">
-          Language does not perfectly reveal who we are.<br>
-          But it leaves measurable psychological traces.
+        <p class="reflection__text reflection__text--closing">
+          Language may not perfectly reveal identity —<br>
+          but it leaves measurable traces of how we think, feel, and relate to the world.
         </p>
       </div>
     </section>
