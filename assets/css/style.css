@@ -1193,13 +1193,17 @@ body.mode-intuition .question__mark {
 }
 
 #rq1-viz .chart-reveal[data-chart="1"].is-visible { transition-delay: 0.2s; }
-#rq1-viz .chart-reveal[data-chart="4"].is-visible { transition-delay: 0.35s; }
+#rq1-viz .chart-reveal[data-chart="2"].is-visible { transition-delay: 0.35s; }
+#rq1-viz .chart-reveal[data-chart="3"].is-visible { transition-delay: 0.5s; }
+#rq1-viz .chart-reveal[data-chart="4"].is-visible { transition-delay: 0.65s; }
 
 #rq1-viz .chart-reveal.is-visible .chart-card__stage img {
   transition-delay: 0.35s;
 }
 
-#rq1-viz .chart-reveal[data-chart="4"].is-visible .chart-card__stage img { transition-delay: 0.5s; }
+#rq1-viz .chart-reveal[data-chart="2"].is-visible .chart-card__stage img { transition-delay: 0.5s; }
+#rq1-viz .chart-reveal[data-chart="3"].is-visible .chart-card__stage img { transition-delay: 0.65s; }
+#rq1-viz .chart-reveal[data-chart="4"].is-visible .chart-card__stage img { transition-delay: 0.8s; }
 
 /* --- Chart cards --- */
 .chart-grid {
@@ -1384,14 +1388,38 @@ body.mode-intuition .question__mark {
 .feature-word:nth-child(5) { bottom: 22%; left: 22%; }
 .feature-word:nth-child(6) { bottom: 15%; right: 10%; }
 
-.chart-card figcaption {
+.chart-card figcaption,
+.chart-card .figure__title {
   font-family: var(--font-display);
   font-size: var(--text-caption);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--text-primary);
+  margin-bottom: 1.15rem;
+  text-align: center;
+}
+
+.figure-note {
+  margin: clamp(1.35rem, 3.5vh, 2rem) auto 0;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+  max-width: 38rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.chart-card--labeled {
+  padding-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.chart-card--labeled .chart-card__stage {
+  margin-bottom: 0;
 }
 
 .chart-card img {
@@ -2143,10 +2171,16 @@ body.mode-intuition .question__mark {
   border-radius: 16px;
 }
 
-.chart-card--featured figcaption {
-  font-size: var(--text-caption);
-  letter-spacing: 0.12em;
-  margin-bottom: 1.5rem;
+.chart-card--featured figcaption,
+.chart-card--featured .figure__title {
+  font-size: var(--text-body);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.chart-card--featured .figure-note {
+  max-width: 40rem;
+  font-size: clamp(0.9375rem, 0.875rem + 0.2vw, 1.0125rem);
 }
 
 .insight--large {
@@ -2668,9 +2702,20 @@ code {
 
   .eyebrow,
   .rq-card__label,
-  .compare__tag,
-  .chart-card figcaption {
+  .compare__tag {
     font-size: var(--text-label);
+  }
+
+  .figure-note {
+    max-width: none;
+    padding-inline: 0.25rem;
+    font-size: var(--text-sm);
+    line-height: 1.75;
+  }
+
+  .chart-card figcaption,
+  .chart-card .figure__title {
+    font-size: var(--text-body);
   }
 
   .eval-card--primary {

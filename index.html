@@ -301,20 +301,40 @@
       </div>
     </section>
 
-    <!-- RQ1 — ranking visualization -->
+    <!-- RQ1 — figures -->
     <section id="rq1-viz" class="section section--scene section--scene-loose section--final-act section--results" data-theme="feeling">
       <div class="section__inner scene-spaced">
-        <figure class="chart-card chart-card--featured chart-reveal reveal" data-chart="1" data-dimension="multi">
-          <figcaption>Dimension predictability ranking</figcaption>
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal" data-chart="1" data-dimension="multi">
+          <figcaption class="figure__title">Dimension Predictability Ranking</figcaption>
           <div class="chart-card__stage" data-reveal="rise">
-            <img src="visuals/figures/dimension_predictability_ranking.png" alt="Dimension ranking" loading="lazy">
+            <img src="visuals/figures/dimension_predictability_ranking.png" alt="Bar chart ranking MBTI dimensions by macro F1 score" loading="lazy">
           </div>
+          <p class="figure-note">Horizontal bar chart ranking all four MBTI dimensions by macro F1 score; T/F sits clearly highest, visually separating itself from the other three.</p>
         </figure>
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-chart="4" data-dimension="dim_TF">
-          <figcaption>T/F confusion matrix · logistic regression</figcaption>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal reveal--delay-1" data-chart="2" data-dimension="multi">
+          <figcaption class="figure__title">Best Model Overview</figcaption>
           <div class="chart-card__stage" data-reveal="fade">
-            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="T/F confusion matrix" loading="lazy">
+            <img src="visuals/figures/best_model_overview.png" alt="Best model per dimension summary" loading="lazy">
           </div>
+          <p class="figure-note">Summary table/chart showing which model won per dimension; Logistic Regression dominates across the board.</p>
+        </figure>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal reveal--delay-2" data-chart="3" data-dimension="multi">
+          <figcaption class="figure__title">ROC Curves Grid</figcaption>
+          <div class="chart-card__stage" data-reveal="draw">
+            <img src="visuals/figures/roc_summary_grid.png" alt="ROC curves grid for all four dimensions" loading="lazy">
+            <div class="chart-card__scan" aria-hidden="true"></div>
+          </div>
+          <p class="figure-note">2×2 grid of ROC curves, one per dimension, for the best model on each; T/F pulls furthest from the diagonal, confirming it as the strongest result.</p>
+        </figure>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal reveal--delay-3" data-chart="4" data-dimension="dim_TF">
+          <figcaption class="figure__title">Confusion Matrix · T/F · Logistic Regression</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="Confusion matrix for Thinking vs Feeling classification" loading="lazy">
+          </div>
+          <p class="figure-note">Shows classification performance on the most predictable dimension; useful for observing where the model still confuses Thinking vs Feeling cases.</p>
         </figure>
       </div>
     </section>
@@ -364,8 +384,8 @@
     <!-- RQ2 — feature visualizations -->
     <section id="rq2-viz" class="section section--scene section--scene-loose section--final-act" data-theme="intuition">
       <div class="section__inner scene-spaced">
-        <figure class="chart-card chart-card--featured chart-reveal reveal" data-dimension="dim_TF">
-          <figcaption>Most predictive terms — T/F</figcaption>
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal" data-dimension="dim_TF">
+          <figcaption class="figure__title">Top Features — Thinking vs Feeling</figcaption>
           <div class="feature-emergence" aria-hidden="true">
             <span class="feature-word">logic</span>
             <span class="feature-word">feel</span>
@@ -375,14 +395,17 @@
             <span class="feature-word">care</span>
           </div>
           <div class="chart-card__stage" data-reveal="rise">
-            <img src="visuals/figures/top_features_dim_TF.png" alt="Top T/F features" loading="lazy">
+            <img src="visuals/figures/top_features_dim_TF.png" alt="Diverging bar chart of top T/F logistic regression coefficients" loading="lazy">
           </div>
+          <p class="figure-note">Diverging bar chart of top logistic regression coefficients for the T/F dimension; bars pointing in opposite directions make the vocabulary split immediately readable.</p>
         </figure>
-        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-dimension="multi">
-          <figcaption>Cross-dimension feature heatmap</figcaption>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-reveal reveal reveal--delay-1" data-dimension="multi">
+          <figcaption class="figure__title">Cross-Dimension Feature Heatmap</figcaption>
           <div class="chart-card__stage" data-reveal="draw">
-            <img src="visuals/figures/feature_heatmap.png" alt="Feature heatmap" loading="lazy">
+            <img src="visuals/figures/feature_heatmap.png" alt="Feature coefficient heatmap across all MBTI dimensions" loading="lazy">
           </div>
+          <p class="figure-note">Normalized coefficient strengths for important terms across all four dimensions; some words strongly predict one dimension while remaining weak or neutral in others, showing that personality language patterns are not dimension-exclusive.</p>
         </figure>
       </div>
     </section>
