@@ -71,6 +71,98 @@
 
   statNumbers.forEach((el) => counterObserver.observe(el));
 
+  /* --- Metric showcase count-up (0.809) --- */
+  const metricEl = document.querySelector("[data-metric]");
+
+  if (metricEl) {
+    const target = parseFloat(metricEl.dataset.metric);
+    const metricObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const duration = 2200;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            metricEl.textContent = (eased * target).toFixed(3);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+
+          requestAnimationFrame(tick);
+          metricObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.45 }
+    );
+    metricObserver.observe(metricEl.closest(".metric-showcase") || metricEl);
+  }
+
+  /* --- Chapter navigation & progress --- */
+  const chapterNav = document.querySelector(".chapter-nav");
+  const chapterProgress = document.querySelector(".chapter-nav__progress");
+  const chapterLinks = document.querySelectorAll(".chapter-nav__list a");
+  const chapterSections = document.querySelectorAll("[data-chapter]");
+  const heroSection = document.getElementById("hero");
+  let chapterTicking = false;
+
+  function updateChapters() {
+    if (!chapterSections.length) return;
+
+    if (heroSection) {
+      const pastHero = window.scrollY > heroSection.offsetHeight * 0.35;
+      body.classList.toggle("chapters-visible", pastHero);
+    }
+
+    const scrollY = window.scrollY + window.innerHeight * 0.38;
+    let activeChapter = chapterSections[0].dataset.chapter;
+
+    chapterSections.forEach((section) => {
+      if (section.offsetTop <= scrollY) {
+        activeChapter = section.dataset.chapter;
+      }
+    });
+
+    chapterLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.dataset.chapter === activeChapter);
+    });
+
+    document.querySelectorAll(".nav__links a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        const id = href.slice(1);
+        link.classList.toggle("is-active", id === activeChapter);
+      }
+    });
+
+    if (chapterProgress && chapterSections.length > 1) {
+      const first = chapterSections[0];
+      const last = chapterSections[chapterSections.length - 1];
+      const start = first.offsetTop;
+      const end = last.offsetTop + last.offsetHeight;
+      const range = end - start;
+      const pct = range > 0 ? Math.min(100, Math.max(0, ((window.scrollY - start) / range) * 100)) : 0;
+      chapterProgress.style.height = pct + "%";
+    }
+
+    chapterTicking = false;
+  }
+
+  if (chapterNav && chapterSections.length) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!chapterTicking) {
+          chapterTicking = true;
+          requestAnimationFrame(updateChapters);
+        }
+      },
+      { passive: true }
+    );
+    updateChapters();
+  }
+
   /* --- Subtle language drift on scroll (depth, not distraction) --- */
   const langLayers = document.querySelectorAll(".lang-atmosphere");
   let langTicking = false;
