@@ -33,7 +33,7 @@
       <li><a href="#evaluation" data-chapter="evaluation"><span class="chapter-nav__num">08</span> Evaluation</a></li>
       <li><a href="#results" data-chapter="results"><span class="chapter-nav__num">09</span> Results</a></li>
       <li><a href="#interpretability" data-chapter="interpretability"><span class="chapter-nav__num">10</span> Language</a></li>
-      <li><a href="#future-work" data-chapter="future-work"><span class="chapter-nav__num">11</span> Future</a></li>
+      <li><a href="#rq3" data-chapter="rq3"><span class="chapter-nav__num">11</span> RQ3</a></li>
       <li><a href="#limitations" data-chapter="limitations"><span class="chapter-nav__num">12</span> Limits</a></li>
       <li><a href="#conclusion" data-chapter="conclusion"><span class="chapter-nav__num">13</span> Close</a></li>
     </ol>
@@ -104,9 +104,9 @@
             <p class="support">Interpreted through logistic regression coefficients.</p>
           </article>
           <article class="rq-card rq-card--scene rq-card--future reveal reveal--delay-2">
-            <span class="rq-card__label">RQ3 · Future</span>
+            <span class="rq-card__label">RQ3 · Exploratory</span>
             <h3>Does signal survive without topical vocabulary?</h3>
-            <p class="support">Style-only features — planned next step.</p>
+            <p class="support">When models learn topics — not personality. Chapter 11.</p>
           </article>
         </div>
       </div>
@@ -347,13 +347,117 @@
       </div>
     </section>
 
-    <!-- FUTURE WORK -->
-    <section id="future-work" class="section section--scene" data-theme="thinking" data-chapter="future-work">
+    <!-- RQ3 — INTRO -->
+    <section id="rq3" class="section section--scene section--rq3 section--rq3-intro" data-theme="intuition" data-chapter="rq3">
+      <div class="lang-atmosphere lang-atmosphere--rq3" data-lang-set="rq3" data-lang-intensity="light" aria-hidden="true"></div>
       <div class="section__inner scene scene--center">
         <span class="eyebrow reveal">Chapter 11 · RQ3</span>
-        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Beyond topic</h2>
-        <p class="statement reveal reveal--delay-2">Remove content words. Keep style. Test again.</p>
-        <p class="support reveal reveal--delay-3">Planned in <code>05_build_style_features.py</code></p>
+        <h2 class="scene__title scene__title--rq3 reactive-headline reveal reveal--delay-1">Are we detecting personality…<br>or the subjects people talk about?</h2>
+        <p class="statement statement--sm reveal reveal--delay-2">Topical leakage — when prediction follows hobbies, not identity.</p>
+      </div>
+    </section>
+
+    <!-- RQ3 — WHY IT MATTERS -->
+    <section id="rq3-why" class="section section--scene section--rq3" data-theme="introvert">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">The deeper question</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Not just accuracy.<br>What is the model learning?</h2>
+        <p class="support reveal reveal--delay-2">Personality modeling must ask whether language carries psychological signal — or merely reflects what we choose to discuss.</p>
+      </div>
+    </section>
+
+    <!-- RQ3 — TOPICAL LEAKAGE -->
+    <section id="rq3-leakage" class="section section--scene section--rq3" data-theme="thinking">
+      <div class="section__inner">
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">Topical leakage</span>
+          <h2 class="scene__title reactive-headline">Content vs. linguistic style</h2>
+          <p class="statement statement--sm">Models may exploit topic — not true personality traces.</p>
+        </header>
+        <div class="compare compare--leakage reveal reveal--delay-1">
+          <article class="compare__panel compare__panel--leak">
+            <span class="compare__tag">Topic-driven</span>
+            <p class="compare__word">What we discuss</p>
+            <ul class="compare__list compare__list--tags">
+              <li>Hobbies &amp; fandoms</li>
+              <li>Niche interests</li>
+              <li>Internet communities</li>
+              <li>Philosophy · gaming · politics</li>
+            </ul>
+          </article>
+          <article class="compare__panel compare__panel--style">
+            <span class="compare__tag">Style-driven</span>
+            <p class="compare__word">How we write</p>
+            <ul class="compare__list compare__list--tags">
+              <li>Emotional tone</li>
+              <li>Sentence structure</li>
+              <li>Social orientation</li>
+              <li>Analytical vs. emotional language</li>
+            </ul>
+          </article>
+        </div>
+        <p class="support support--center reveal reveal--delay-2">RQ3 asks: if we strip the first, does the second still predict?</p>
+      </div>
+    </section>
+
+    <!-- RQ3 — APPROACH -->
+    <section id="rq3-approach" class="section section--scene section--rq3 section--scene-tall" data-theme="perceiving">
+      <div class="section__inner">
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">What we pursued</span>
+          <h2 class="scene__title reactive-headline">Style-oriented features</h2>
+          <p class="statement statement--sm">An exploratory direction — not a finished result.</p>
+        </header>
+        <div class="rq3-grid reveal reveal--delay-1">
+          <article class="rq3-card">
+            <h3>Less topical vocabulary</h3>
+            <p>Reduce reliance on high-IDF content words.</p>
+          </article>
+          <article class="rq3-card">
+            <h3>Stylistic patterns</h3>
+            <p>Punctuation, length, richness, function words.</p>
+          </article>
+          <article class="rq3-card">
+            <h3>Same evaluation</h3>
+            <p>Re-run models · compare macro F1 to baseline.</p>
+          </article>
+          <article class="rq3-card rq3-card--honest">
+            <h3>Academic honesty</h3>
+            <p>Placeholder in <code>05_build_style_features.py</code> — methodologically important, not yet complete.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RQ3 — WHY IT'S HARD -->
+    <section id="rq3-hard" class="section section--scene section--rq3" data-theme="feeling">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Why this is hard</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Topic and personality<br>are entangled</h2>
+        <div class="limits-stack limits-stack--rq3 reveal reveal--delay-2">
+          <p class="limit-line">We express identity through interests and communities.</p>
+          <p class="limit-line">Recurring subjects carry emotional focus.</p>
+          <p class="limit-line">Separating personality from topic may be impossible in practice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RQ3 — FUTURE & CLOSING -->
+    <section id="rq3-future" class="section section--scene section--rq3 section--rq3-outro" data-theme="intuition">
+      <div class="lang-atmosphere lang-atmosphere--rq3" data-lang-set="rq3" data-lang-intensity="minimal" aria-hidden="true"></div>
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Future directions</span>
+        <ul class="rq3-pills reveal reveal--delay-1">
+          <li>Remove high-information topical words</li>
+          <li>Stylistic-only modeling</li>
+          <li>Transformer interpretability</li>
+          <li>Cross-domain evaluation</li>
+          <li>Multilingual personality analysis</li>
+        </ul>
+        <blockquote class="rq3-closing reveal reveal--delay-2">
+          <p>Maybe personality prediction is not just about <em>what</em> we say…</p>
+          <p class="rq3-closing__emphasis">but <em>how</em> we say it.</p>
+        </blockquote>
       </div>
     </section>
 

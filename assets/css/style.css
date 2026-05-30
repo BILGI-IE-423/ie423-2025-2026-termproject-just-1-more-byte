@@ -27,7 +27,7 @@
   --text-caption: clamp(0.875rem, 0.8125rem + 0.2vw, 0.9375rem);
   --text-label: clamp(0.8125rem, 0.75rem + 0.18vw, 0.875rem);
   --text-display-hero: clamp(2.75rem, 2rem + 5vw, 6rem);
-  --text-display-xl: clamp(2.25rem, 1.5rem + 3.5vw, 4.2rem);
+  --text-display-xl: clamp(2.75rem, 1.85rem + 4.5vw, 4.75rem);
   --text-display-lg: clamp(2rem, 1.35rem + 2.8vw, 3.35rem);
   --text-display-md: clamp(1.625rem, 1.2rem + 1.8vw, 2.25rem);
   --text-display-sm: clamp(1.375rem, 1.05rem + 1.2vw, 1.75rem);
@@ -484,11 +484,11 @@ a {
 /* --- Cinematic mask artifacts (legacy — hidden) --- */
 
 .section__inner {
-  width: 100%;
-  max-width: var(--content-max);
-  margin: 0 auto;
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
 }
 
 .mask-art {
@@ -760,6 +760,8 @@ a {
 .section {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: var(--section-pad) clamp(1.5rem, 5vw, 3rem);
   position: relative;
@@ -1530,7 +1532,33 @@ body.mode-intuition .question__mark {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: var(--scene-gap);
+  width: 100%;
+}
+
+.scene--center .eyebrow {
+  justify-content: center;
+}
+
+.scene--center .eyebrow::before {
+  display: none;
+}
+
+.scene--center .scene__title,
+.scene--center .statement,
+.scene--center .support,
+.scene--center .lead {
+  text-align: center;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 720px;
+}
+
+.scene--center .scene__title {
+  font-size: var(--text-display-xl);
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 .scene-spaced {
@@ -1560,6 +1588,7 @@ body.mode-intuition .question__mark {
   letter-spacing: -0.03em;
   margin: 0.6rem 0 0;
   color: var(--text-primary);
+  text-wrap: balance;
 }
 
 .statement {
@@ -1800,6 +1829,147 @@ body.mode-intuition .question__mark {
 .limit-line:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+/* --- RQ3 chapter (exploratory, philosophical) --- */
+.section--rq3 {
+  --rq3-glow: rgba(100, 80, 140, 0.08);
+}
+
+.section--rq3-intro,
+.section--rq3-outro {
+  min-height: 100vh;
+}
+
+.section--rq3 .ambient__glow {
+  opacity: 0.85;
+}
+
+.scene__title--rq3 {
+  font-style: italic;
+  max-width: 18ch;
+  color: var(--text-primary);
+}
+
+.compare--leakage {
+  max-width: 920px;
+}
+
+.compare__panel--leak {
+  opacity: 0.78;
+  border-style: dashed;
+  background: rgba(250, 249, 247, 0.45);
+}
+
+.compare__panel--style {
+  border-color: color-mix(in srgb, var(--dim-ns-a) 35%, var(--border));
+  box-shadow: 0 12px 48px var(--rq3-glow);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.compare__list--tags li {
+  position: relative;
+  padding-left: 0.1rem;
+  font-size: var(--text-sm);
+}
+
+.rq3-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.rq3-card {
+  padding: clamp(1.75rem, 4vw, 2.25rem);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.rq3-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.rq3-card p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-support);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.rq3-card--honest {
+  grid-column: span 2;
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+  background: rgba(250, 249, 247, 0.65);
+}
+
+.limits-stack--rq3 {
+  max-width: 560px;
+}
+
+.rq3-pills {
+  list-style: none;
+  margin: 0 0 var(--scene-gap-lg);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 0.85rem;
+  max-width: 640px;
+}
+
+.rq3-pills li {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rq3-closing {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  max-width: 520px;
+  text-align: center;
+}
+
+.rq3-closing p {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-display);
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+.rq3-closing__emphasis {
+  font-size: var(--text-display-md) !important;
+  color: var(--text-primary) !important;
+  font-style: normal !important;
+  margin-top: 0.75rem !important;
+}
+
+.lang-atmosphere--rq3 {
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 15%, transparent 85%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 15%, transparent 85%);
 }
 
 /* Featured charts — more breathing room */
@@ -2280,8 +2450,17 @@ code {
   .eval-grid,
   .limits-grid,
   .compare,
-  .prep-grid {
+  .prep-grid,
+  .rq3-grid {
     grid-template-columns: 1fr;
+  }
+
+  .rq3-card--honest {
+    grid-column: span 1;
+  }
+
+  .scene__title--rq3 {
+    max-width: none;
   }
 
   .compare {
@@ -2297,8 +2476,10 @@ code {
     font-size: var(--text-body);
   }
 
-  .scene__title {
-    font-size: clamp(2rem, 1.35rem + 4vw, 2.85rem);
+  .scene__title,
+  .scene--center .scene__title {
+    font-size: clamp(2.35rem, 1.5rem + 5vw, 3.25rem);
+    max-width: none;
   }
 
   .statement {

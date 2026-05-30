@@ -59,6 +59,14 @@
       { text: "exploration", size: 3, x: 70, y: 60, opacity: 0.068, blur: 0.8, phrase: true, depth: 0.6 },
       { text: "identity", size: 5.5, x: 50, y: 85, opacity: 0.055, blur: 2, depth: 0.7 },
     ],
+    rq3: [
+      { text: "topic", size: 5, x: 82, y: 22, opacity: 0.055, blur: 1.6, depth: 0.45 },
+      { text: "style", size: 6, x: 14, y: 38, opacity: 0.062, blur: 1.4, depth: 0.55 },
+      { text: "how we say it", size: 2.6, x: 58, y: 72, opacity: 0.07, blur: 0.6, phrase: true, depth: 0.35 },
+      { text: "uncertainty", size: 3.8, x: 28, y: 18, opacity: 0.05, blur: 1.8, depth: 0.65 },
+      { text: "signal", size: 4.2, x: 72, y: 48, opacity: 0.058, blur: 1.5, depth: 0.5 },
+      { text: "what we discuss", size: 2.2, x: 8, y: 68, opacity: 0.065, blur: 0.5, phrase: true, depth: 0.4 },
+    ],
   };
 
   function spawnWords(container, items) {
