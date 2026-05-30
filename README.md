@@ -16,6 +16,13 @@
 
 ---
 
+## Website
+
+The interactive project website is available on:
+https://bilgi-ie-423.github.io/ie423-2025-2026-termproject-just-1-more-byte/
+
+---
+
 ## Dataset
 
 **Source:** [Kaggle — datasnaek/mbti-type](https://www.kaggle.com/datasets/datasnaek/mbti-type)  
