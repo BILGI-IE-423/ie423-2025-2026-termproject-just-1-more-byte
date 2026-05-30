@@ -54,303 +54,210 @@
   <main>
 
     <!-- HERO -->
-    <section id="hero" class="section section--hero" data-theme="introvert">
+    <section id="hero" class="section section--hero section--scene" data-theme="introvert">
       <div class="lang-atmosphere lang-atmosphere--hero" data-lang-set="hero" data-lang-intensity="medium" aria-hidden="true"></div>
       <div class="section__inner hero">
-        <p class="eyebrow reveal">IE423 · NLP &amp; Machine Learning · Interactive Research</p>
+        <p class="eyebrow reveal">IE423 · NLP &amp; Machine Learning</p>
         <h1 class="hero__title reactive-headline reveal reveal--delay-1">Can language reveal<br>who we are?</h1>
-        <p class="hero__sub reveal reveal--delay-2">
-          A complete research narrative — from motivation and methodology to findings, limitations, and meaning.
-        </p>
-        <a href="#why-mbti" class="cta reveal reveal--delay-3">Begin the study ↓</a>
+        <a href="#question" class="cta reveal reveal--delay-2">Explore the study ↓</a>
       </div>
     </section>
 
-    <!-- OPENING QUESTION -->
-    <section id="question" class="section section--question" data-theme="intuition" data-analysis-zone>
+    <!-- OPENING -->
+    <section id="question" class="section section--question section--scene" data-theme="intuition" data-analysis-zone>
       <div class="lang-atmosphere lang-atmosphere--question" data-lang-set="question" data-lang-intensity="medium" aria-hidden="true"></div>
       <div class="section__inner question">
         <div class="question__mark reveal" aria-hidden="true"><span>?</span></div>
         <div class="question__text reveal reveal--delay-1">
           <p class="lead">Every sentence leaves a trace.</p>
-          <p class="body-lg">If personality shapes how we speak, can classical NLP recover those patterns from text alone?</p>
-          <p class="body-sm muted">This project treats written language as a measurable signal — not a mirror of the self, but a window into statistical tendencies in expression.</p>
+          <p class="statement statement--sm">Can machine learning read those traces?</p>
         </div>
       </div>
     </section>
 
-    <!-- WHY MBTI? -->
-    <section id="why-mbti" class="section section--narrative" data-theme="introvert" data-chapter="why-mbti">
-      <div class="section__inner narrative">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 01 · Context</span>
-          <h2 class="reactive-headline">Why personality and language?</h2>
-        </header>
-        <div class="narrative-grid reveal reveal--delay-1">
-          <div class="narrative-prose">
-            <p class="body-lg">The Myers–Briggs Type Indicator (MBTI) describes personality along four binary dimensions — how people orient energy (I/E), process information (N/S), decide (T/F), and structure life (J/P).</p>
-            <p class="body-sm muted">MBTI is widely used but scientifically debated. We do not treat it as ground truth psychology; we treat it as a <strong>structured label space</strong> for studying whether language carries detectable personality-related signals.</p>
-          </div>
-          <div class="narrative-aside">
-            <article class="aside-card">
-              <h3>Why this is an NLP problem</h3>
-              <p>Personality may influence word choice, emotional tone, abstraction, and social framing — all observable in text. Machine learning lets us test which dimensions leave measurable linguistic traces.</p>
-            </article>
-          </div>
-        </div>
+    <!-- WHY MBTI -->
+    <section id="why-mbti" class="section section--scene" data-theme="introvert" data-chapter="why-mbti">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 01</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Why personality<br>and language?</h2>
+        <p class="statement reveal reveal--delay-2">Language reflects patterns of attention, emotion, and social orientation.</p>
+        <p class="support reveal reveal--delay-3">We use MBTI as a structured label space — not ground-truth psychology — to ask whether text carries detectable personality signals.</p>
       </div>
     </section>
 
-    <!-- RESEARCH QUESTIONS -->
-    <section id="research-questions" class="section section--narrative" data-theme="intuition" data-chapter="research-questions">
+    <!-- RESEARCH QUESTIONS — stacked cinematic cards -->
+    <section id="research-questions" class="section section--scene section--scene-tall" data-theme="intuition" data-chapter="research-questions">
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 02 · Research Questions</span>
-          <h2 class="reactive-headline">What we set out to answer</h2>
-          <p class="body-sm muted">Three questions guide the pipeline — each mapped to a specific stage of analysis.</p>
+        <header class="scene__header reveal">
+          <span class="eyebrow">Chapter 02</span>
+          <h2 class="scene__title reactive-headline">Research questions</h2>
         </header>
-        <div class="rq-grid reveal reveal--delay-1">
-          <article class="rq-card">
-            <span class="rq-card__label">RQ1 · Predictability</span>
-            <h3>Which MBTI dimensions are most predictable from text?</h3>
-            <p>Not all personality axes may be equally visible in language. We rank dimensions by macro F1 to see where text carries the strongest signal.</p>
-            <p class="rq-card__maps"><strong>Answered by:</strong> modeling → evaluation → results ranking</p>
+        <div class="rq-stack">
+          <article class="rq-card rq-card--scene reveal">
+            <span class="rq-card__label">RQ1</span>
+            <h3>Which dimensions are most predictable from text?</h3>
+            <p class="support">Ranked by macro F1 across I/E, N/S, T/F, J/P.</p>
           </article>
-          <article class="rq-card">
-            <span class="rq-card__label">RQ2 · Linguistic patterns</span>
-            <h3>Which words and phrases associate with each dimension?</h3>
-            <p>Beyond accuracy, we ask <em>why</em> models succeed — which vocabulary aligns with Thinking vs Feeling, Introversion vs Extraversion, and so on.</p>
-            <p class="rq-card__maps"><strong>Answered by:</strong> logistic regression coefficients → interpretability analysis</p>
+          <article class="rq-card rq-card--scene reveal reveal--delay-1">
+            <span class="rq-card__label">RQ2</span>
+            <h3>Which words associate with each dimension?</h3>
+            <p class="support">Interpreted through logistic regression coefficients.</p>
           </article>
-          <article class="rq-card rq-card--future">
-            <span class="rq-card__label">RQ3 · Style vs topic</span>
-            <h3>Can dimensions still be predicted after removing topical vocabulary?</h3>
-            <p>If personality survives without content words, the signal lives in <em>how</em> people write — not just <em>what</em> they discuss.</p>
-            <p class="rq-card__maps"><strong>Planned:</strong> style-only features (future work)</p>
+          <article class="rq-card rq-card--scene rq-card--future reveal reveal--delay-2">
+            <span class="rq-card__label">RQ3 · Future</span>
+            <h3>Does signal survive without topical vocabulary?</h3>
+            <p class="support">Style-only features — planned next step.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- DIMENSION-LEVEL APPROACH -->
-    <section id="dimensions" class="section section--narrative" data-theme="thinking" data-chapter="dimensions">
+    <!-- DIMENSION COMPARISON -->
+    <section id="dimensions" class="section section--scene" data-theme="thinking" data-chapter="dimensions">
       <div class="lang-atmosphere" data-lang-set="pipeline" data-lang-intensity="light" aria-hidden="true"></div>
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 03 · Methodological choice</span>
-          <h2 class="reactive-headline">Why predict dimensions, not 16 types?</h2>
+        <header class="scene__header reveal">
+          <span class="eyebrow">Chapter 03</span>
+          <h2 class="scene__title reactive-headline">Dimensions, not 16 types</h2>
         </header>
-        <div class="narrative-grid reveal reveal--delay-1">
-          <div class="narrative-prose">
-            <p class="body-lg">Instead of classifying all 16 MBTI types directly, we decompose personality into four independent binary tasks:</p>
-            <ul class="dim-list">
-              <li><span class="dim-tag dim-tag--ie">I/E</span> Introversion vs Extraversion</li>
-              <li><span class="dim-tag dim-tag--ns">N/S</span> Intuition vs Sensing</li>
-              <li><span class="dim-tag dim-tag--tf">T/F</span> Thinking vs Feeling</li>
-              <li><span class="dim-tag dim-tag--jp">J/P</span> Judging vs Perceiving</li>
+        <div class="compare reveal reveal--delay-1">
+          <article class="compare__panel compare__panel--alt">
+            <span class="compare__tag">16-type prediction</span>
+            <p class="compare__word">Complex</p>
+            <ul class="compare__list">
+              <li>Heavy imbalance</li>
+              <li>Noisy labels</li>
+              <li>Hard to interpret</li>
             </ul>
-          </div>
-          <div class="narrative-aside">
-            <article class="aside-card">
-              <h3>Why this matters</h3>
-              <ul class="aside-list">
-                <li><strong>Less imbalance</strong> — binary splits are more balanced than rare 16-type classes</li>
-                <li><strong>More interpretable</strong> — coefficients map to single psychological axes</li>
-                <li><strong>More stable</strong> — smaller label space reduces spurious type-level patterns</li>
-                <li><strong>Psychologically meaningful</strong> — dimensions are the unit MBTI theory actually proposes</li>
-              </ul>
-            </article>
-          </div>
+          </article>
+          <article class="compare__panel compare__panel--primary">
+            <span class="compare__tag">Dimension-level</span>
+            <p class="compare__word">Clearer</p>
+            <ul class="compare__list">
+              <li>I/E · N/S · T/F · J/P</li>
+              <li>More balanced</li>
+              <li>Interpretable axes</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- DATASET -->
-    <section id="data" class="section section--narrative" data-theme="sensing" data-chapter="data" data-analysis-zone>
+    <!-- DATASET — stats first -->
+    <section id="data" class="section section--scene" data-theme="sensing" data-chapter="data" data-analysis-zone>
       <div class="lang-atmosphere" data-lang-set="data" data-lang-intensity="light" aria-hidden="true"></div>
-      <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 04 · Dataset</span>
-          <h2 class="reactive-headline">The corpus we studied</h2>
-        </header>
-
-        <div class="narrative-grid reveal reveal--delay-1">
-          <div class="narrative-prose">
-            <p class="body-lg">We use the public <strong>Kaggle MBTI Personality Type dataset</strong> — forum posts from users who self-reported their four-letter type.</p>
-            <p class="body-sm muted">Each row is one person: their declared MBTI type and aggregated posts. Labels are <em>self-reported</em>, not clinically validated — a deliberate trade-off that gives scale but introduces noise.</p>
-          </div>
-          <div class="stats stats--compact">
-            <div class="stat"><span class="stat__number" data-count="8675">0</span><span class="stat__label">users</span></div>
-            <div class="stat"><span class="stat__number">4</span><span class="stat__label">dimensions</span></div>
-            <div class="stat"><span class="stat__number">16</span><span class="stat__label">MBTI types</span></div>
-          </div>
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 04</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">The corpus</h2>
+        <div class="stats stats--hero reveal reveal--delay-2">
+          <div class="stat"><span class="stat__number" data-count="8675">0</span><span class="stat__label">users</span></div>
+          <div class="stat"><span class="stat__number">4</span><span class="stat__label">dimensions</span></div>
+          <div class="stat"><span class="stat__number">16</span><span class="stat__label">types</span></div>
         </div>
+        <p class="support reveal reveal--delay-3">Kaggle MBTI dataset · self-reported forum posts</p>
+        <p class="support support--muted reveal reveal--delay-3">Noisy, informal, imperfect — but large enough to learn from.</p>
+      </div>
+    </section>
 
-        <aside class="callout callout--caution reveal reveal--delay-2">
-          <span class="callout__label">Dataset realities</span>
-          <ul class="callout__list">
-            <li><strong>Self-report bias</strong> — users choose their own type; labels may reflect identity performance</li>
-            <li><strong>Internet language</strong> — forum slang, memes, and community jargon add noise</li>
-            <li><strong>Imperfect validity</strong> — MBTI is popular but contested in academic psychology</li>
-          </ul>
-          <p class="body-sm muted">Acknowledging these limits makes our findings more credible, not weaker.</p>
-        </aside>
-
-        <div class="chart-grid chart-grid--duo reveal reveal--delay-3">
-          <figure class="chart-card chart-reveal" data-dimension="multi">
-            <figcaption><span class="chart-card__dim">Corpus</span> Type distribution — imbalance across 16 types</figcaption>
-            <div class="chart-card__stage" data-reveal="rise">
-              <img src="visuals/figures/fig1_type_distribution.png" alt="MBTI type distribution" loading="lazy">
-            </div>
-            <p class="chart-note">Rare types are underrepresented — another reason we model dimensions, not full types.</p>
-          </figure>
-          <figure class="chart-card chart-reveal" data-dimension="dim_NS">
-            <figcaption><span class="chart-card__dim">All dimensions</span> Class balance per dimension pair</figcaption>
-            <div class="chart-card__stage" data-reveal="rise">
-              <img src="visuals/figures/class_imbalance_overview.png" alt="Class imbalance by dimension" loading="lazy">
-            </div>
-            <p class="chart-note">Binary splits are more balanced — but still uneven enough to require careful evaluation metrics.</p>
-          </figure>
-        </div>
+    <!-- DATA CHARTS — separate scene -->
+    <section id="data-viz" class="section section--scene section--scene-loose" data-theme="sensing">
+      <div class="section__inner scene-spaced">
+        <figure class="chart-card chart-card--featured chart-reveal reveal" data-dimension="multi">
+          <figcaption>Type distribution</figcaption>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/fig1_type_distribution.png" alt="MBTI type distribution" loading="lazy">
+          </div>
+        </figure>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-dimension="dim_NS">
+          <figcaption>Class balance per dimension</figcaption>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/class_imbalance_overview.png" alt="Class imbalance" loading="lazy">
+          </div>
+        </figure>
       </div>
     </section>
 
     <!-- PREPROCESSING -->
-    <section id="preprocessing" class="section section--narrative" data-theme="thinking" data-chapter="preprocessing" data-analysis-zone>
+    <section id="preprocessing" class="section section--scene" data-theme="thinking" data-chapter="preprocessing" data-analysis-zone>
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 05 · Preprocessing</span>
-          <h2 class="reactive-headline">Cleaning text without erasing personality</h2>
+        <header class="scene__header reveal">
+          <span class="eyebrow">Chapter 05</span>
+          <h2 class="scene__title reactive-headline">Clean, but not sterile</h2>
+          <p class="statement statement--sm">Moderate preprocessing preserves the signals we seek.</p>
         </header>
-        <div class="pipeline pipeline--horizontal reveal reveal--delay-1">
-          <div class="pipeline__step"><span>Raw posts</span></div>
-          <div class="pipeline__arrow">→</div>
-          <div class="pipeline__step"><span>URL removal</span></div>
-          <div class="pipeline__arrow">→</div>
-          <div class="pipeline__step"><span>MBTI mention strip</span></div>
-          <div class="pipeline__arrow">→</div>
-          <div class="pipeline__step"><span>Lowercase</span></div>
-          <div class="pipeline__arrow">→</div>
-          <div class="pipeline__step"><span>Clean corpus</span></div>
-        </div>
-        <div class="narrative-grid reveal reveal--delay-2">
-          <div class="narrative-prose">
-            <p class="body-lg">Each user's posts are concatenated and cleaned: URLs removed, explicit MBTI type mentions stripped (to prevent label leakage), special characters normalized, text lowercased.</p>
-            <p class="body-sm muted">We deliberately chose <strong>moderate</strong> preprocessing. Aggressive normalization — stemming everything, removing all punctuation, stripping emotional markers — could destroy the very stylistic signals personality might leave behind.</p>
-          </div>
-          <article class="aside-card aside-card--accent">
-            <h3>Key decision</h3>
-            <p>Preprocessing removes noise and leakage, but preserves vocabulary richness, emotional words, and informal expression — because those may <em>be</em> the personality signal.</p>
-          </article>
+        <div class="prep-grid reveal reveal--delay-1">
+          <article class="prep-card"><h3>Lowercase</h3><p>Normalize form</p></article>
+          <article class="prep-card"><h3>URL removal</h3><p>Strip noise</p></article>
+          <article class="prep-card"><h3>Label strip</h3><p>Prevent leakage</p></article>
+          <article class="prep-card prep-card--accent"><h3>Keep nuance</h3><p>Emotion &amp; style stay</p></article>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE ENGINEERING -->
-    <section id="features" class="section section--narrative" data-theme="sensing" data-chapter="features">
+    <!-- FEATURES -->
+    <section id="features" class="section section--scene" data-theme="sensing" data-chapter="features">
       <div class="lang-atmosphere" data-lang-set="pipeline" data-lang-intensity="medium" aria-hidden="true"></div>
-      <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 06 · Feature engineering</span>
-          <h2 class="reactive-headline">From words to numbers</h2>
-        </header>
-        <div class="method-cards reveal reveal--delay-1">
-          <article class="method-card">
-            <h3>TF-IDF vectorization</h3>
-            <p>Text becomes a sparse matrix of 5,000 term weights. TF-IDF highlights words distinctive to a document relative to the corpus — effective for forum text where topic and style intertwine.</p>
-          </article>
-          <article class="method-card">
-            <h3>Stopword removal</h3>
-            <p>Standard English stopwords removed to reduce noise, while keeping emotionally and stylistically loaded terms that may carry personality signal.</p>
-          </article>
-          <article class="method-card">
-            <h3>Stratified split</h3>
-            <p>80/20 train–test split stratified on full MBTI type — ensuring rare types appear in both sets and evaluation reflects real imbalance.</p>
-          </article>
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 06</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Words become signals</h2>
+        <div class="flow reveal reveal--delay-2">
+          <span>Words</span><span class="flow__arrow">→</span>
+          <span>TF-IDF</span><span class="flow__arrow">→</span>
+          <span>Features</span><span class="flow__arrow">→</span>
+          <span>Models</span>
         </div>
-        <aside class="callout reveal reveal--delay-2">
-          <span class="callout__label">Why TF-IDF, not transformers?</span>
-          <p class="body-sm">This project prioritizes <strong>interpretability</strong> and linguistic analysis. TF-IDF + linear models yield inspectable coefficients — you can read <em>which words</em> drive predictions. Deep models may score higher but obscure the language–personality link we set out to study.</p>
-        </aside>
+        <p class="support reveal reveal--delay-3">5,000 TF-IDF features · stratified split · interpretable by design</p>
+        <p class="statement statement--sm reveal reveal--delay-3">We chose classical features over transformers — to read <em>which words</em> matter.</p>
       </div>
     </section>
 
     <!-- MODELING -->
-    <section id="modeling" class="section section--narrative" data-theme="thinking" data-chapter="modeling">
+    <section id="modeling" class="section section--scene section--scene-tall" data-theme="thinking" data-chapter="modeling">
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 07 · Modeling</span>
-          <h2 class="reactive-headline">Three interpretable classifiers</h2>
-          <p class="body-sm muted">Each model trains independently on all four dimensions — four binary classification tasks × three algorithms.</p>
+        <header class="scene__header reveal">
+          <span class="eyebrow">Chapter 07</span>
+          <h2 class="scene__title reactive-headline">Three models</h2>
         </header>
-        <div class="model-grid reveal reveal--delay-1">
-          <article class="model-card">
+        <div class="model-stack">
+          <article class="model-card model-card--scene reveal">
             <h3>Logistic Regression</h3>
-            <p>Linear decision boundary in TF-IDF space. Coefficients directly reveal predictive terms. Strong baseline for sparse text — and our best performer overall.</p>
+            <p>Readable coefficients · best overall</p>
           </article>
-          <article class="model-card">
+          <article class="model-card model-card--scene reveal reveal--delay-1">
             <h3>Linear SVM</h3>
-            <p>Maximum-margin linear classifier. Handles high-dimensional sparse features well; coefficients analogous to LR for interpretability.</p>
+            <p>Strong sparse-text baseline</p>
           </article>
-          <article class="model-card">
+          <article class="model-card model-card--scene reveal reveal--delay-2">
             <h3>Random Forest</h3>
-            <p>Non-linear ensemble baseline. Tests whether tree interactions capture signal linear models miss — at the cost of harder interpretation.</p>
+            <p>Non-linear comparison</p>
           </article>
         </div>
-        <div class="narrative-grid reveal reveal--delay-2">
-          <article class="aside-card">
-            <h3>Handling imbalance</h3>
-            <p>All models use <code>class_weight="balanced"</code> — automatically up-weighting minority classes so the classifier cannot ignore rare traits.</p>
-          </article>
-          <article class="aside-card">
-            <h3>Why linear models fit TF-IDF</h3>
-            <p>Sparse bag-of-words vectors live in high-dimensional space where linear separators often work well. With thousands of features and limited samples per class, simpler models generalize more reliably than complex ones.</p>
-          </article>
-        </div>
+        <p class="support support--center reveal reveal--delay-3"><code>class_weight="balanced"</code> on all models</p>
       </div>
     </section>
 
     <!-- EVALUATION -->
-    <section id="evaluation" class="section section--narrative" data-theme="perceiving" data-chapter="evaluation">
-      <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 08 · Evaluation strategy</span>
-          <h2 class="reactive-headline">Measuring fairly under imbalance</h2>
-        </header>
-        <div class="eval-grid reveal reveal--delay-1">
-          <article class="eval-card eval-card--primary">
-            <h3>Macro F1 (primary metric)</h3>
-            <p>Averages F1 across both classes equally — so a model cannot look good by always predicting the majority trait. Essential when classes are uneven.</p>
-          </article>
-          <article class="eval-card">
-            <h3>Accuracy</h3>
-            <p>Reported but not trusted alone. A model predicting only "Introvert" could score high accuracy while failing completely on Extraverts.</p>
-          </article>
-          <article class="eval-card">
-            <h3>ROC-AUC</h3>
-            <p>Measures ranking quality across thresholds — how well the model separates classes probabilistically.</p>
-          </article>
-          <article class="eval-card">
-            <h3>Confusion matrices</h3>
-            <p>Show where errors concentrate — which trait pairs are confused, revealing asymmetric predictability.</p>
-          </article>
-        </div>
+    <section id="evaluation" class="section section--scene" data-theme="perceiving" data-chapter="evaluation">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 08</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Macro F1 first</h2>
+        <p class="statement reveal reveal--delay-2">Accuracy alone misleads under imbalance.</p>
+        <p class="support reveal reveal--delay-3">Macro F1 · ROC-AUC · confusion matrices</p>
       </div>
     </section>
 
-    <!-- RESULTS -->
-    <section id="results" class="section section--results section--narrative" data-theme="feeling" data-chapter="results">
+    <!-- RESULTS — climax -->
+    <section id="results" class="section section--scene section--scene-climax" data-theme="feeling" data-chapter="results">
       <div class="lang-atmosphere" data-lang-set="results" data-lang-intensity="minimal" aria-hidden="true"></div>
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 09 · Findings</span>
-          <h2 class="reactive-headline">What language predicted</h2>
-          <p class="body-sm muted">Logistic Regression won on every dimension. The Thinking/Feeling axis was the clearest signal in text.</p>
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">Chapter 09</span>
+          <h2 class="scene__title reactive-headline">What language predicted</h2>
         </header>
 
         <div class="metric-showcase reveal" id="metric-showcase">
           <div class="metric-showcase__ambient" aria-hidden="true"></div>
-          <p class="metric-showcase__eyebrow">Strongest signal · RQ1</p>
+          <p class="metric-showcase__eyebrow">Strongest signal</p>
           <div class="metric-showcase__value-wrap">
             <span class="metric-showcase__value" data-metric="0.809">0.000</span>
           </div>
@@ -363,69 +270,61 @@
           </div>
         </div>
 
-        <article class="interp-block reveal">
-          <h3>Why might T/F be most predictable?</h3>
-          <p class="body-sm muted">Thinking and Feeling orientations may produce the most distinct vocabulary — analytical vs emotional language, systems-talk vs relationship-talk. Our interpretability analysis (Chapter 10) confirms terms like <em>logic</em>, <em>feel</em>, and <em>people</em> dominate the T/F boundary.</p>
-        </article>
+        <p class="statement statement--center reveal">Analytical language and emotional language diverge most clearly.</p>
+      </div>
+    </section>
 
-        <div class="results-charts">
-          <figure class="chart-card chart-card--wide chart-reveal" data-chart="1" data-dimension="multi">
-            <figcaption><span class="chart-card__dim">RQ1</span> Dimensions ranked by predictability</figcaption>
-            <div class="chart-card__stage" data-reveal="rise">
-              <img src="visuals/figures/dimension_predictability_ranking.png" alt="Dimension predictability ranking" loading="lazy">
-            </div>
-            <p class="chart-note">T/F leads, followed by I/E, J/P, and N/S — dimensions are not equally visible in language.</p>
-          </figure>
-
-          <figure class="chart-card chart-card--wide chart-reveal" data-chart="2" data-dimension="multi">
-            <figcaption><span class="chart-card__dim">Models</span> Best model per dimension</figcaption>
-            <div class="chart-card__stage" data-reveal="fade">
-              <img src="visuals/figures/best_model_overview.png" alt="Best model overview" loading="lazy">
-            </div>
-            <p class="chart-note">Logistic Regression consistently outperforms Linear SVM and Random Forest — linear structure dominates.</p>
-          </figure>
-
-          <figure class="chart-card chart-card--wide chart-reveal" data-chart="3" data-dimension="multi">
-            <figcaption><span class="chart-card__dim">Discrimination</span> ROC curves — best model per dimension</figcaption>
-            <div class="chart-card__stage" data-reveal="draw">
-              <img src="visuals/figures/roc_summary_grid.png" alt="ROC summary grid" loading="lazy">
-              <div class="chart-card__scan" aria-hidden="true"></div>
-            </div>
-            <p class="chart-note">T/F shows the steepest ROC curve — strongest separability in probability space.</p>
-          </figure>
-
-          <figure class="chart-card chart-card--wide chart-reveal" data-chart="4" data-dimension="dim_TF">
-            <figcaption><span class="chart-card__dim">T/F</span> Confusion matrix — Logistic Regression</figcaption>
-            <div class="chart-card__stage" data-reveal="fade">
-              <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="T/F confusion matrix" loading="lazy">
-            </div>
-            <p class="chart-note">Errors are relatively symmetric — the model does not simply collapse to one class.</p>
-          </figure>
-        </div>
+    <!-- RESULTS CHARTS — spaced -->
+    <section id="results-charts" class="section section--scene section--scene-loose section--results" data-theme="feeling">
+      <div class="section__inner scene-spaced">
+        <figure class="chart-card chart-card--featured chart-reveal reveal" data-chart="1" data-dimension="multi">
+          <figcaption>Dimension ranking</figcaption>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/dimension_predictability_ranking.png" alt="Dimension ranking" loading="lazy">
+          </div>
+        </figure>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-1" data-chart="2" data-dimension="multi">
+          <figcaption>Best model per dimension</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/best_model_overview.png" alt="Best models" loading="lazy">
+          </div>
+        </figure>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-2" data-chart="3" data-dimension="multi">
+          <figcaption>ROC curves</figcaption>
+          <div class="chart-card__stage" data-reveal="draw">
+            <img src="visuals/figures/roc_summary_grid.png" alt="ROC grid" loading="lazy">
+            <div class="chart-card__scan" aria-hidden="true"></div>
+          </div>
+        </figure>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-3" data-chart="4" data-dimension="dim_TF">
+          <figcaption>T/F confusion matrix</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/confusion_matrix_dim_TF_logistic_regression.png" alt="Confusion matrix" loading="lazy">
+          </div>
+        </figure>
       </div>
     </section>
 
     <!-- INTERPRETABILITY -->
-    <section id="interpretability" class="section section--interpret section--narrative" data-theme="intuition" data-chapter="interpretability">
+    <section id="interpretability" class="section section--scene section--interpret section--scene-climax" data-theme="intuition" data-chapter="interpretability">
       <div class="lang-atmosphere lang-atmosphere--interpret" data-lang-set="interpret" data-lang-intensity="strong" aria-hidden="true"></div>
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 10 · Linguistic interpretability</span>
-          <h2 class="reactive-headline">Hidden traces in vocabulary</h2>
-          <p class="body-sm muted">RQ2 — Which linguistic patterns associate with each dimension?</p>
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">Chapter 10</span>
+          <h2 class="scene__title reactive-headline">Traces in vocabulary</h2>
         </header>
 
-        <div class="insight-blocks reveal reveal--delay-1">
-          <blockquote class="insight">
-            <p>Thinking language leaned toward logic, systems, analysis, and detached framing — words that organize and evaluate.</p>
+        <div class="insight-blocks insight-blocks--spacious reveal reveal--delay-1">
+          <blockquote class="insight insight--large">
+            <p>Thinking → logic, systems, analysis</p>
           </blockquote>
-          <blockquote class="insight">
-            <p>Feeling language emphasized emotion, relationships, values, and personal experience — words that connect and express.</p>
+          <blockquote class="insight insight--large">
+            <p>Feeling → emotion, care, connection</p>
           </blockquote>
         </div>
 
-        <figure class="chart-card chart-card--wide chart-reveal" data-dimension="dim_TF">
-          <figcaption><span class="chart-card__dim">RQ2 · T/F</span> Most predictive terms — Thinking vs Feeling</figcaption>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-2" data-dimension="dim_TF">
+          <figcaption>Most predictive terms — T/F</figcaption>
           <div class="feature-emergence" aria-hidden="true">
             <span class="feature-word">logic</span>
             <span class="feature-word">feel</span>
@@ -437,84 +336,53 @@
           <div class="chart-card__stage" data-reveal="rise">
             <img src="visuals/figures/top_features_dim_TF.png" alt="Top T/F features" loading="lazy">
           </div>
-          <p class="chart-note">Coefficients are readable evidence — not proof of causality, but a map of which words co-occur with each pole.</p>
         </figure>
 
-        <figure class="chart-card chart-card--wide chart-reveal" data-dimension="multi">
-          <figcaption><span class="chart-card__dim">Cross-dimension</span> Feature importance heatmap</figcaption>
+        <figure class="chart-card chart-card--featured chart-reveal reveal reveal--delay-3" data-dimension="multi">
+          <figcaption>Cross-dimension heatmap</figcaption>
           <div class="chart-card__stage" data-reveal="draw">
             <img src="visuals/figures/feature_heatmap.png" alt="Feature heatmap" loading="lazy">
           </div>
-          <p class="chart-note">Some terms predict multiple dimensions; others are axis-specific — personality in language is multidimensional, not a single vocabulary.</p>
         </figure>
       </div>
     </section>
 
-    <!-- FUTURE WORK / RQ3 -->
-    <section id="future-work" class="section section--narrative" data-theme="thinking" data-chapter="future-work">
-      <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Future work · RQ3</span>
-          <h2 class="reactive-headline">Beyond topical vocabulary</h2>
-        </header>
-        <div class="method-cards reveal reveal--delay-1">
-          <article class="method-card">
-            <h3>The hypothesis</h3>
-            <p>Remove content words (nouns, proper nouns, domain terms) and retain function words, punctuation, sentence length. If models still predict personality, the signal is stylistic — not just topical.</p>
-          </article>
-          <article class="method-card">
-            <h3>Planned pipeline</h3>
-            <p>POS-tag with NLTK, filter content words, build style-only features, re-train Logistic Regression, compare macro F1 against the TF-IDF baseline.</p>
-          </article>
-          <article class="method-card">
-            <h3>Current status</h3>
-            <p>Stub implemented in <code>05_build_style_features.py</code>. Reliable POS-tagging on noisy forum text needs further tuning — documented as the logical next step.</p>
-          </article>
-        </div>
-        <p class="body-lg centered reveal reveal--delay-2">Other directions: transformer embeddings, multilingual corpora, deeper stylometric features, and ethical auditing of deployment contexts.</p>
+    <!-- FUTURE WORK -->
+    <section id="future-work" class="section section--scene" data-theme="thinking" data-chapter="future-work">
+      <div class="section__inner scene scene--center">
+        <span class="eyebrow reveal">Chapter 11 · RQ3</span>
+        <h2 class="scene__title reactive-headline reveal reveal--delay-1">Beyond topic</h2>
+        <p class="statement reveal reveal--delay-2">Remove content words. Keep style. Test again.</p>
+        <p class="support reveal reveal--delay-3">Planned in <code>05_build_style_features.py</code></p>
       </div>
     </section>
 
     <!-- LIMITATIONS -->
-    <section id="limitations" class="section section--narrative" data-theme="feeling" data-chapter="limitations">
+    <section id="limitations" class="section section--scene" data-theme="feeling" data-chapter="limitations">
       <div class="section__inner">
-        <header class="section__header reveal">
-          <span class="eyebrow">Chapter 11 · Limitations &amp; ethics</span>
-          <h2 class="reactive-headline">What this project does not claim</h2>
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">Chapter 12</span>
+          <h2 class="scene__title reactive-headline">What we don't claim</h2>
         </header>
-        <div class="limits-grid reveal reveal--delay-1">
-          <article class="limit-card">
-            <h3>MBTI validity</h3>
-            <p>MBTI lacks strong scientific consensus. We study linguistic correlates of self-reported types — not verified personality structure.</p>
-          </article>
-          <article class="limit-card">
-            <h3>Self-report bias</h3>
-            <p>Users choose their own label. Online personas may exaggerate or perform type-consistent language consciously or unconsciously.</p>
-          </article>
-          <article class="limit-card">
-            <h3>Topical leakage</h3>
-            <p>TF-IDF captures topic as well as style. Community-specific jargon may inflate scores without revealing deep personality traits (RQ3 addresses this).</p>
-          </article>
-          <article class="limit-card">
-            <h3>Personality ≠ destiny</h3>
-            <p>Statistical patterns in text must never be used to judge, hire, or categorize individuals. Language reveals tendencies — not identity.</p>
-          </article>
+        <div class="limits-stack reveal reveal--delay-1">
+          <p class="limit-line">MBTI is debated — we study self-reported labels.</p>
+          <p class="limit-line">Forum language is noisy and performative.</p>
+          <p class="limit-line">Topic and personality can overlap.</p>
+          <p class="limit-line">Language reveals tendencies — not identity.</p>
         </div>
       </div>
     </section>
 
     <!-- CONCLUSION -->
-    <section id="conclusion" class="section section--reflection" data-theme="perceiving" data-chapter="conclusion">
+    <section id="conclusion" class="section section--reflection section--scene" data-theme="perceiving" data-chapter="conclusion">
       <div class="lang-atmosphere" data-lang-set="reflection" data-lang-intensity="light" aria-hidden="true"></div>
-      <div class="section__inner reflection reveal">
-        <span class="eyebrow">Chapter 12 · Conclusion</span>
-        <h2 class="reactive-headline">Patterns, not identities</h2>
+      <div class="section__inner reflection scene scene--center reveal">
+        <span class="eyebrow">Chapter 13</span>
+        <h2 class="scene__title reactive-headline">Patterns, not identities</h2>
         <p class="reflection__text">
           Language does not perfectly reveal who we are.<br>
           But it leaves measurable psychological traces.
         </p>
-        <p class="body-lg centered">We showed that classical NLP can detect some MBTI dimensions from text — especially Thinking vs Feeling — and that interpretable models expose the vocabulary behind those predictions. The signal is real but partial, noisy, and ethically bounded.</p>
-        <p class="body-sm muted">Personality is more than words. Our models capture statistical tendencies in written expression — invitations to further study, not definitions of the self.</p>
       </div>
     </section>
 
