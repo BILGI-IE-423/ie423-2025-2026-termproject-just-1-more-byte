@@ -103,19 +103,149 @@ def plot_roc_curve(y_true, y_score, dimension: str, model_name: str) -> str:
 
 
 def plot_macro_f1_comparison(results_df: pd.DataFrame) -> str:
-    """Grouped bar chart — muted model palette."""
+    """Grouped bar chart — macro F1 by dimension for all models (legacy alias)."""
+    return plot_model_comparison_overview(results_df)
+
+
+def plot_model_comparison_overview(results_df: pd.DataFrame) -> str:
+    """Grouped bar chart — macro F1 across dimensions for LR, SVM, and Random Forest."""
     setup_cinematic_style()
-    fig, ax = plt.subplots(figsize=(10, 5))
+    from src.chart_style import MODEL_COLORS, add_figure_title
+
+    model_order = ["logistic_regression", "linear_svm", "random_forest"]
+    model_labels = {
+        "logistic_regression": "Logistic Regression",
+        "linear_svm": "Linear SVM",
+        "random_forest": "Random Forest",
+    }
+    dim_order = ["I/E", "N/S", "T/F", "J/P"]
+
     pivot = results_df.pivot(index="dim_label", columns="model", values="macro_f1")
-    colors = ["#5B7A94", "#64508C", "#486E58"]
-    pivot.plot(kind="bar", ax=ax, rot=0, color=colors[: len(pivot.columns)], width=0.72, edgecolor="white")
-    ax.set_title("Macro F1 by Dimension and Model", fontweight="600")
-    ax.set_xlabel("MBTI Dimension")
+    pivot = pivot.reindex(index=dim_order, columns=model_order)
+
+    fig, ax = plt.subplots(figsize=(8.5, 5))
+    fig.patch.set_facecolor(CHART_BG)
+    ax.set_facecolor(AXES_BG)
+
+    x = np.arange(len(dim_order))
+    width = 0.24
+
+    for i, model in enumerate(model_order):
+        offset = (i - 1) * width
+        alpha = 0.88 if model == "random_forest" else 0.95
+        ax.bar(
+            x + offset,
+            pivot[model].values,
+            width,
+            label=model_labels[model],
+            color=MODEL_COLORS[i],
+            edgecolor="white",
+            linewidth=1.1,
+            alpha=alpha,
+            zorder=3,
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(dim_order)
     ax.set_ylabel("Macro F1")
-    ax.set_ylim(0, 1)
+    ax.set_ylim(0, 0.9)
+    ax.legend(
+        frameon=False,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.14),
+        ncol=3,
+        fontsize=9,
+        labelcolor=TEXT_SECONDARY,
+    )
     style_axes(ax)
-    plt.tight_layout()
-    return _save_fig(fig, "macro_f1_comparison.png")
+    add_figure_title(
+        fig,
+        "Model Performance Across Dimensions",
+        "Macro F1 · Logistic Regression · Linear SVM · Random Forest",
+    )
+    plt.subplots_adjust(top=0.82, bottom=0.2)
+    return _save_fig(fig, "model_comparison_overview.png")
+
+
+def plot_svm_vs_logreg_comparison(results_df: pd.DataFrame) -> str:
+    """Side-by-side macro F1 — Logistic Regression vs Linear SVM per dimension."""
+    setup_cinematic_style()
+    from src.chart_style import MODEL_COLORS, add_figure_title
+
+    models = ["logistic_regression", "linear_svm"]
+    model_labels = {
+        "logistic_regression": "Logistic Regression",
+        "linear_svm": "Linear SVM",
+    }
+    dim_order = ["I/E", "N/S", "T/F", "J/P"]
+
+    pivot = results_df.pivot(index="dim_label", columns="model", values="macro_f1")
+    pivot = pivot.reindex(index=dim_order, columns=models)
+
+    fig, ax = plt.subplots(figsize=(8, 4.8))
+    fig.patch.set_facecolor(CHART_BG)
+    ax.set_facecolor(AXES_BG)
+
+    x = np.arange(len(dim_order))
+    width = 0.34
+
+    lr_vals = pivot["logistic_regression"].values
+    svm_vals = pivot["linear_svm"].values
+
+    ax.bar(
+        x - width / 2,
+        lr_vals,
+        width,
+        label=model_labels["logistic_regression"],
+        color=MODEL_COLORS[0],
+        edgecolor="white",
+        linewidth=1.1,
+        zorder=3,
+    )
+    ax.bar(
+        x + width / 2,
+        svm_vals,
+        width,
+        label=model_labels["linear_svm"],
+        color=MODEL_COLORS[1],
+        edgecolor="white",
+        linewidth=1.1,
+        alpha=0.92,
+        zorder=3,
+    )
+
+    for i, (lr, svm) in enumerate(zip(lr_vals, svm_vals)):
+        delta = lr - svm
+        ax.text(
+            x[i],
+            max(lr, svm) + 0.018,
+            f"Δ {delta:+.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=7.5,
+            color=TEXT_MUTED,
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(dim_order)
+    ax.set_ylabel("Macro F1")
+    ax.set_ylim(0, 0.92)
+    ax.legend(
+        frameon=False,
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.12),
+        ncol=2,
+        fontsize=9,
+        labelcolor=TEXT_SECONDARY,
+    )
+    style_axes(ax)
+    add_figure_title(
+        fig,
+        "Linear SVM vs Logistic Regression",
+        "Macro F1 by dimension · held-out test set",
+    )
+    plt.subplots_adjust(top=0.82, bottom=0.22)
+    return _save_fig(fig, "svm_vs_logreg_comparison.png")
 
 
 def plot_feature_importance(

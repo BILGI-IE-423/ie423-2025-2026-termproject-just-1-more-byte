@@ -8,7 +8,8 @@ This script:
 - Computes accuracy, precision, recall, macro F1, and ROC-AUC for all models
 - Saves results tables
 - Saves ONE core confusion matrix (T/F, Logistic Regression)
-- Detailed per-model plots are handled by stage 08
+- Generates model comparison figures from real test-set metrics
+- Detailed interpretability plots are handled by stage 08
 """
 
 import os
@@ -28,7 +29,11 @@ from src.features import load_tfidf_artifacts
 from src.metrics import compute_metrics, get_score_vector, metrics_to_row
 from src.models import get_models, load_model
 from src.paths import TABLES_DIR, ensure_dirs
-from src.plots import plot_confusion_matrix
+from src.plots import (
+    plot_confusion_matrix,
+    plot_model_comparison_overview,
+    plot_svm_vs_logreg_comparison,
+)
 
 ensure_dirs()
 
@@ -101,5 +106,13 @@ y_pred = model.predict(X_test)
 cm_path = plot_confusion_matrix(y_test, y_pred, CORE_CM_DIMENSION, CORE_CM_MODEL)
 print(f"[OK] Saved: {cm_path}")
 
+# --- 5. Model comparison figures (from evaluation metrics) ---
+print("\nGenerating model comparison figures from test-set results...")
+comparison_path = plot_model_comparison_overview(results_df)
+print(f"[OK] Saved: {comparison_path}")
+
+svm_path = plot_svm_vs_logreg_comparison(results_df)
+print(f"[OK] Saved: {svm_path}")
+
 print(f"\nDone. Metrics saved to {TABLES_DIR}.")
-print("Run scripts/visualization/08_interpretability_analysis.py for core research figures.")
+print("Run scripts/visualization/08_interpretability_analysis.py for interpretability figures.")

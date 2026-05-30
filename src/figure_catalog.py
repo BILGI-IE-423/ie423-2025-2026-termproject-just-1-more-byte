@@ -14,6 +14,8 @@ CORE_FIGURES = frozenset({
     "top_features_dim_TF.png",
     "feature_heatmap.png",
     "best_model_overview.png",
+    "model_comparison_overview.png",
+    "svm_vs_logreg_comparison.png",
     "confusion_matrix_dim_TF_logistic_regression.png",
 })
 

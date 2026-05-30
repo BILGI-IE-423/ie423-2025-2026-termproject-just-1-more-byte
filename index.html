@@ -239,6 +239,33 @@
       </div>
     </section>
 
+    <!-- MODEL COMPARISON — pipeline-generated, three baselines -->
+    <section id="model-comparison" class="section section--scene section--scene-loose" data-theme="thinking">
+      <div class="section__inner scene-spaced">
+        <header class="scene__header scene__header--center reveal">
+          <span class="eyebrow">Systematic comparison</span>
+          <h2 class="scene__title reactive-headline">Comparing classical ML approaches</h2>
+          <p class="statement statement--sm">All figures from held-out test evaluation · stage 07 pipeline.</p>
+        </header>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-card--comparison chart-reveal reveal reveal--delay-1" data-dimension="multi">
+          <figcaption class="figure__title">Model Performance Across Dimensions</figcaption>
+          <div class="chart-card__stage" data-reveal="rise">
+            <img src="visuals/figures/model_comparison_overview.png" alt="Macro F1 comparison of Logistic Regression, Linear SVM, and Random Forest across four MBTI dimensions" loading="lazy">
+          </div>
+          <p class="figure-note figure-note--insight">Linear models consistently outperformed Random Forest across all four dimensions, suggesting that sparse TF-IDF representations align more naturally with linear decision boundaries.</p>
+        </figure>
+
+        <figure class="chart-card chart-card--featured chart-card--labeled chart-card--comparison chart-reveal reveal reveal--delay-2" data-dimension="multi">
+          <figcaption class="figure__title">Linear SVM vs Logistic Regression</figcaption>
+          <div class="chart-card__stage" data-reveal="fade">
+            <img src="visuals/figures/svm_vs_logreg_comparison.png" alt="Macro F1 comparison of Linear SVM and Logistic Regression across four MBTI dimensions" loading="lazy">
+          </div>
+          <p class="figure-note figure-note--insight">Linear SVM remained highly competitive across all four dimensions, reinforcing the effectiveness of linear decision boundaries in sparse TF-IDF feature spaces.</p>
+        </figure>
+      </div>
+    </section>
+
     <!-- EVALUATION -->
     <section id="evaluation" class="section section--scene" data-theme="perceiving" data-chapter="evaluation">
       <div class="section__inner scene scene--center">
