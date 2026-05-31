@@ -7,19 +7,18 @@
 - Ali Fırat Dolu
 
 ---
+## Website
+
+The interactive project website is available on:
+https://bilgi-ie-423.github.io/ie423-2025-2026-termproject-just-1-more-byte/
+
+---
 
 ## Research Questions
 
 1. Which MBTI personality dimensions are most predictable from text?
 2. Which linguistic and stylistic features contribute most to personality prediction?
 3. Can personality traits still be predicted when topical vocabulary is removed?
-
----
-
-## Website
-
-The interactive project website is available on:
-https://bilgi-ie-423.github.io/ie423-2025-2026-termproject-just-1-more-byte/
 
 ---
 
